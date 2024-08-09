@@ -1,0 +1,52 @@
+---
+title: "Benchmark_Papers"
+format: 
+  dashboard: 
+    logo: "images/logo.png"
+    orientation: columns
+---
+
+# Paper
+
+## Column {width="35%}
+
+Placeholder text for Column 1
+
+```{r, loadpacakges}
+#| echo: false
+#| include: false
+
+library(tidyverse)
+```
+
+```{r, printstarwars}
+head(starwars)
+```
+
+## Column {width="65%}
+
+Placeholder text for Column 2
+
+### Row {height="10%}
+
+Placeholder text for Top Row
+
+### Row {height="70%}
+
+Placeholder text for Middle Row
+
+### Row {height="20%}
+
+Placeholder text for Bottom Row
+
+
+
+# Data overview
+
+
+
+# Evaluation Summary
+
+
+
+# General Information
