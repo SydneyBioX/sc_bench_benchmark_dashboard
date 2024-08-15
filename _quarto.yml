@@ -1,18 +1,13 @@
 project:
   type: website
+  output-dir: docs
 
 website:
   title: "sc_bench_benchmark_dashboard"
   sidebar:
     content:
-      - href: dashbaord.qmd
-        text: Paper
-      - href: overview/index.qmd
-        text: Data Overview
-      - href: evaluation/index.qmd
-        text: Evaluation Summary
-      - href: infomation/index.qmd
-        text: General Information
+      - href: index.qmd
+        text: Papers
 
 format:
   html:

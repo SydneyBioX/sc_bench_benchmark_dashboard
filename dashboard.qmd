@@ -1,52 +1,172 @@
 ---
-title: "Benchmark_Papers"
+title: "sc bench benchmark"
+author: ""
 format: 
   dashboard: 
-    logo: "images/logo.png"
-    orientation: columns
+    logo: "https://www.sydney.edu.au/etc.clientlibs/corporate-commons/clientlibs/foundation/resources/corporate-frontend/assets/img/favicon/favicon-16x16.png"
+    theme: 
+      - slate
+      - custom.scss
 ---
 
-# Paper
-
-## Column {width="35%}
-
-Placeholder text for Column 1
-
-```{r, loadpacakges}
+```{r}
+#| label: load-packages
 #| echo: false
 #| include: false
 
 library(tidyverse)
+library(DT)
+library(data.table)
+library(bslib)
+library(bsicons)
 ```
 
-```{r, printstarwars}
-head(starwars)
+```{r}
+#| label: load-data
+#| message: false
+
+
+data <- read.csv("data/data.csv")
+
 ```
 
-## Column {width="65%}
+# Paper
 
-Placeholder text for Column 2
+## Column {width="100%"}
 
-### Row {height="10%}
+### Row {.tabset}
 
-Placeholder text for Top Row
+#### Category
 
-### Row {height="70%}
+###### Row {height="20%"}
 
-Placeholder text for Middle Row
+```{r}
+#| content: valuebox
+#| title: "Valuebox 1"
+list(
+  icon = "book",
+  color = "warning",
+  value = 3
+)
+```
 
-### Row {height="20%}
+```{r}
+#| content: valuebox
+#| title: "Valuebox 2"
+list(
+  icon = "book",
+  color = "info",
+  value = 4
+)
+```
 
-Placeholder text for Bottom Row
+```{r}
+#| content: valuebox
+#| title: "Valuebox 3"
+list(
+  icon = "trash",
+  color = "danger",
+  value = 10
+)
+```
+
+::: {.valuebox icon="arrow-repeat" color="vb-warning"}
+In Progress
+
+3 4
+:::
 
 
+###### Row {height="80%"}
+
+```{r}
+#| title: Pure or New method
+
+
+```
+
+Placeholder for Pure and method
+
+#### Survey Analysis
+
+##### Row {height="15%"}
+
+Placeholder text for top row (Selection)
+
+##### Row {height="85%"}
+
+::: {.card title="card Title"}
+This is a card
+:::
+
+```{r}
+#| title: card title
+
+```
 
 # Data overview
 
+## Column {width="100%"}
 
+```{r}
+data.table(data)
+```
 
 # Evaluation Summary
 
+## Row {.tabset}
 
+### Journal
+
+#### Column {width="50%"}
+
+```{r}
+#| title: Pure Benchmark
+```
+
+#### Column {width="50%"}
+
+```{r}
+#| title: New Method
+```
+
+### Publication Year
+
+#### Column {width="50%"}
+
+```{r}
+#| title: Pure Benchmark
+
+```
+#### Column {width="50%"}
+
+```{r}
+#| title: New Method
+```
+
+### Category Frequency
+
+#### Column {width="50%"}
+
+```{r}
+#| title: Pure Benchmark
+```
+
+#### Column {width="50%"}
+
+```{r}
+#| title: New Method
+```
+
+
+### Statistics
+
+
+```{r}
+#| title: List of statistics
+```
+Statistics
 
 # General Information
+
+{{<include information/index.qml}}

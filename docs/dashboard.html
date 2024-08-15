@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.56">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="">
+
+<title>sc bench benchmark – sc_bench_benchmark_dashboard</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-dashboard/quarto-dashboard.js"></script>
+<script src="site_libs/quarto-dashboard/stickythead.js"></script>
+<script src="site_libs/quarto-dashboard/datatables.min.js" kdttablesentinel="true"></script>
+<script src="site_libs/quarto-dashboard/pdfmake.min.js" kdttablesentinel="true"></script>
+<script src="site_libs/quarto-dashboard/vfs_fonts.js" kdttablesentinel="true"></script>
+<script src="site_libs/quarto-dashboard/web-components.js" type="module"></script>
+<script src="site_libs/quarto-dashboard/components.js"></script>
+<link href="site_libs/quarto-dashboard/datatables.min.css" rel="stylesheet" kdttablesentinel="true">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="quarto-dashboard nav-sidebar dashboard-fill fullcontent">
+
+<header id="quarto-dashboard-header">
+<nav class="navbar navbar-expand-md slim" data-bs-theme="dark">
+  <div class="navbar-container container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-controls="dashboard-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>    
+
+
+    <div class="navbar-brand-container">       
+    <a href="#"><img src="https://www.sydney.edu.au/etc.clientlibs/corporate-commons/clientlibs/foundation/resources/corporate-frontend/assets/img/favicon/favicon-16x16.png" alt="" class="navbar-logo d-inline-block"></a>
+      <div class="navbar-title">
+        <div class="navbar-title-text"><a href="#">sc bench benchmark</a></div>
+        
+        
+      </div>
+    </div>
+<div id="dashboard-collapse" class="navbar-collapse collapse"><ul class="navbar-nav navbar-nav-scroll me-auto" role="tablist"><li class="nav-item" role="presentation"><a id="tab-paper" class="nav-link active" data-bs-toggle="tab" role="tab" data-bs-target="#paper" data-scrolling="false" href="#paper" aria-controls="paper" aria-selected="true"><span class="nav-link-text">Paper</span></a></li><li class="nav-item" role="presentation"><a id="tab-data-overview" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#data-overview" data-scrolling="false" href="#data-overview" aria-controls="data-overview" aria-selected="false"><span class="nav-link-text">Data overview</span></a></li><li class="nav-item" role="presentation"><a id="tab-evaluation-summary" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#evaluation-summary" data-scrolling="false" href="#evaluation-summary" aria-controls="evaluation-summary" aria-selected="false"><span class="nav-link-text">Evaluation Summary</span></a></li><li class="nav-item" role="presentation"><a id="tab-general-information" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#general-information" data-scrolling="false" href="#general-information" aria-controls="general-information" aria-selected="false"><span class="nav-link-text">General Information</span></a></li></ul></div></div>
+</nav>
+</header>
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-layout-custom quarto-dashboard-content bslib-gap-spacing html-fill-container bslib-page-fill quarto-dashboard-pages">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+<!-- main -->
+
+<div class="bslib-grid-item html-fill-item tab-content bslib-grid" data-layout="fill" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div id="paper" class="dashboard-page tab-pane show active html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-paper">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-width="100%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card tabset html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header dashboard-card-no-title bslib-navs-card-title">
+
+<ul class="nav nav-tabs card-header-tabs" role="tablist" data-tabsetid="card-tabset-1"><li class="nav-item" role="presentation"><a href="#card-tabset-1-1" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="Category" aria-selected="true" class="nav-link active">Category</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-1-2" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="Survey Analysis" aria-selected="false" class="nav-link">Survey Analysis</a></li></ul></div>
+
+
+<div class="tab-content html-fill-item html-fill-container" data-tabset-id="card-tabset-1"><div class="tab-pane active show html-fill-item html-fill-container" role="tabpanel" id="card-tabset-1-1"><div class="card-body html-fill-item html-fill-container" data-title="Category">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 20fr) minmax(3em, 80fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card valuebox cell html-fill-item html-fill-container bslib-card bslib-value-box bg-warning showcase-left-center" data-bslib-card-init="" data-require-bs-caller="card()">
+<div class="card-body html-fill-item html-fill-container">
+<div data-icon="book" class="html-fill-item html-fill-container value-box-grid">
+<div class="value-box-showcase html-fill-item html-fill-container">
+
+<i class="bi bi-book"></i></div>
+<div class="value-box-area">
+<p class="value-box-title">
+Valuebox 1
+</p>
+<p class="value-box-value">
+3
+</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card valuebox cell html-fill-item html-fill-container bslib-card bslib-value-box bg-info showcase-left-center" data-bslib-card-init="" data-require-bs-caller="card()">
+<div class="card-body html-fill-item html-fill-container">
+<div data-icon="book" class="html-fill-item html-fill-container value-box-grid">
+<div class="value-box-showcase html-fill-item html-fill-container">
+
+<i class="bi bi-book"></i></div>
+<div class="value-box-area">
+<p class="value-box-title">
+Valuebox 2
+</p>
+<p class="value-box-value">
+4
+</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card valuebox cell html-fill-item html-fill-container bslib-card bslib-value-box bg-danger showcase-left-center" data-bslib-card-init="" data-require-bs-caller="card()">
+<div class="card-body html-fill-item html-fill-container">
+<div data-icon="trash" class="html-fill-item html-fill-container value-box-grid">
+<div class="value-box-showcase html-fill-item html-fill-container">
+
+<i class="bi bi-trash"></i></div>
+<div class="value-box-area">
+<p class="value-box-title">
+Valuebox 3
+</p>
+<p class="value-box-value">
+10
+</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card valuebox html-fill-item html-fill-container bslib-card bslib-value-box bg-vb-warning showcase-left-center" data-bslib-card-init="" data-require-bs-caller="card()">
+<div class="card-body html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container value-box-grid">
+<div class="value-box-showcase html-fill-item html-fill-container">
+
+<i class="bi bi-arrow-repeat"></i></div>
+<div class="value-box-area">
+<p class="value-box-title">
+<p>In Progress</p>
+</p>
+<p class="value-box-value">
+<p>3 4</p>
+</p>
+</div>
+</div>
+</div>
+<script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<p>Placeholder for Pure and method</p>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-1-2"><div class="card-body html-fill-item html-fill-container" data-title="Survey Analysis">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 15fr) minmax(3em, 85fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<p>Placeholder text for top row (Selection)</p>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-title="card Title" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header"><div class="card-title">card Title</div></div>
+<div class="card-body html-fill-item html-fill-container">
+<p>This is a card</p>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div></div></div><bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div>
+<div id="data-overview" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-data-overview">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" data-width="100%" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output cell-output-stdout html-fill-item html-fill-container">
+<pre><code>                        luke_topic               Timestamp
+                            &lt;char&gt;                  &lt;char&gt;
+  1: Addition - Analysis pipelines     2023-04-24 00:05:36
+  2: Addition - Analysis pipelines     2023-01-23 22:23:45
+  3: Addition - Analysis pipelines     2023-01-30 22:14:33
+  4: Addition - Analysis pipelines     2023-01-09 12:28:07
+  5: Addition - Analysis pipelines     2023-02-17 12:55:17
+ ---                                                      
+352:                 Visualisation 2023-07-17 19:51:48.078
+353:                 Visualisation     2023-02-10 08:56:32
+354:                 Visualisation     2023-01-10 11:27:04
+355:                 Visualisation 2023-07-24 16:45:26.807
+356:                 Visualisation 2023-07-17 17:36:18.025
+                                                                                                                                 Paper.title
+                                                                                                                                      &lt;char&gt;
+  1:                                                                                 spicyR: spatial analysis of in situ cytometry data in R
+  2:                                                                      Benchmarking UMI-based single-cell RNA-seq preprocessing workflows
+  3:                                            Benchmarking single cell RNA-sequencing analysis pipelines using mixture control experiments
+  4:                                                               Interactive analysis of single-cell epigenomic landscapes with ChromSCape
+  5: pipeComp, a general framework for the evaluation of computational pipelines, reveals performant single cell RNA-seq preprocessing tools
+ ---                                                                                                                                        
+352:                                              Visualization and analysis of single-cell RNA-seq data by kernel-based similarity learning
+353:                                                                           Comparison of visualization tools for single-cell RNAseq data
+354:                                                                           Comparison of visualization tools for single-cell RNAseq data
+355:                                                      Generalizable and Scalable Visualization of Single-Cell Data Using Neural Networks
+356:                                                      Generalizable and Scalable Visualization of Single-Cell Data Using Neural Networks
+                   Paper.category Methods.compared Selection.criteria
+                           &lt;char&gt;            &lt;int&gt;             &lt;char&gt;
+  1: New method development paper                0                 No
+  2:      Pure benchmarking paper               10                 No
+  3:      Pure benchmarking paper               27                Yes
+  4: New method development paper                3                Yes
+  5:      Pure benchmarking paper               24                 No
+ ---                                                                 
+352: New method development paper               11                 No
+353:      Pure benchmarking paper               13                Yes
+354:      Pure benchmarking paper               13                Yes
+355: New method development paper                1                 No
+356: New method development paper                1                Yes
+                                          Trajectory.inference
+                                                        &lt;char&gt;
+  1:                                                      &lt;NA&gt;
+  2:                                                      &lt;NA&gt;
+  3:                                                      &lt;NA&gt;
+  4: prediction accuracy of the terminal cell fates (lineages)
+  5:              others (please specify in the next question)
+ ---                                                          
+352:                                                      &lt;NA&gt;
+353:                                                      &lt;NA&gt;
+354:              performance under different trajectory types
+355:                                                      &lt;NA&gt;
+356:                                                      &lt;NA&gt;
+     Trajectory.inference...others                      Gene.regulatory.network
+                            &lt;char&gt;                                       &lt;char&gt;
+  1:                          &lt;NA&gt;                                         &lt;NA&gt;
+  2:                          &lt;NA&gt;                                         &lt;NA&gt;
+  3:                          &lt;NA&gt;                                         &lt;NA&gt;
+  4:                          &lt;NA&gt; others (please specify in the next question)
+  5:                          &lt;NA&gt; others (please specify in the next question)
+ ---                                                                           
+352:                          &lt;NA&gt;                                         &lt;NA&gt;
+353:                          &lt;NA&gt;                                         &lt;NA&gt;
+354:                          &lt;NA&gt; others (please specify in the next question)
+355:                          &lt;NA&gt;                                         &lt;NA&gt;
+356:                          &lt;NA&gt;                                         &lt;NA&gt;
+     Gene.regulatory.network...others
+                               &lt;char&gt;
+  1:                             &lt;NA&gt;
+  2:                             &lt;NA&gt;
+  3:                             &lt;NA&gt;
+  4:                             &lt;NA&gt;
+  5:                             &lt;NA&gt;
+ ---                                 
+352:                             &lt;NA&gt;
+353:                             &lt;NA&gt;
+354:                             &lt;NA&gt;
+355:                             &lt;NA&gt;
+356:                             &lt;NA&gt;
+                                     Doublet.detection
+                                                &lt;char&gt;
+  1:                                              &lt;NA&gt;
+  2:                                              &lt;NA&gt;
+  3:                                              &lt;NA&gt;
+  4: performance in datasets with various doublet rate
+  5:      others (please specify in the next question)
+ ---                                                  
+352:                                              &lt;NA&gt;
+353:                                              &lt;NA&gt;
+354:      others (please specify in the next question)
+355:                                              &lt;NA&gt;
+356:                                              &lt;NA&gt;
+     Doublet.detection...others
+                         &lt;lgcl&gt;
+  1:                         NA
+  2:                         NA
+  3:                         NA
+  4:                         NA
+  5:                         NA
+ ---                           
+352:                         NA
+353:                         NA
+354:                         NA
+355:                         NA
+356:                         NA
+                                                                                                        Simulation
+                                                                                                            &lt;char&gt;
+  1:                                                                                                          &lt;NA&gt;
+  2:                                                                                                          &lt;NA&gt;
+  3:                                                                                                          &lt;NA&gt;
+  4:                                                                             purpose of each simulation method
+  5:                                                                  others (please specify in the next question)
+ ---                                                                                                              
+352:                                                                                                          &lt;NA&gt;
+353:                                                                                                          &lt;NA&gt;
+354: method can capture the distributions for first-order statistics, others (please specify in the next question)
+355:                                                                                                          &lt;NA&gt;
+356:                                                                                                          &lt;NA&gt;
+     Simulation...others                      Differential.expression
+                  &lt;char&gt;                                       &lt;char&gt;
+  1:                &lt;NA&gt;                                         &lt;NA&gt;
+  2:                &lt;NA&gt;                                         &lt;NA&gt;
+  3:                &lt;NA&gt;                                         &lt;NA&gt;
+  4:                &lt;NA&gt; others (please specify in the next question)
+  5:                &lt;NA&gt; others (please specify in the next question)
+ ---                                                                 
+352:                &lt;NA&gt;                                         &lt;NA&gt;
+353:                &lt;NA&gt; others (please specify in the next question)
+354:                &lt;NA&gt; others (please specify in the next question)
+355:                &lt;NA&gt;                                         &lt;NA&gt;
+356:                &lt;NA&gt;                                         &lt;NA&gt;
+                                                     Differential.expression...others
+                                                                               &lt;char&gt;
+  1:                                                                             &lt;NA&gt;
+  2:                                                                             &lt;NA&gt;
+  3:                                                                             &lt;NA&gt;
+  4:                                                                             &lt;NA&gt;
+  5:                                                                             &lt;NA&gt;
+ ---                                                                                 
+352:                                                                             &lt;NA&gt;
+353: check if the interactive visualisation methods deal with differential expression
+354:                                                                             &lt;NA&gt;
+355:                                                                             &lt;NA&gt;
+356:                                                                             &lt;NA&gt;
+                                 Batch.correction
+                                           &lt;char&gt;
+  1:                                         &lt;NA&gt;
+  2:                                         &lt;NA&gt;
+  3:                                         &lt;NA&gt;
+  4: others (please specify in the next question)
+  5: others (please specify in the next question)
+ ---                                             
+352:                                         &lt;NA&gt;
+353:                                         &lt;NA&gt;
+354: others (please specify in the next question)
+355:                                         &lt;NA&gt;
+356:                                         &lt;NA&gt;
+                Multi.omics.integration..matched.
+                                           &lt;char&gt;
+  1:                                         &lt;NA&gt;
+  2:                                         &lt;NA&gt;
+  3:                                         &lt;NA&gt;
+  4: others (please specify in the next question)
+  5: others (please specify in the next question)
+ ---                                             
+352:                                         &lt;NA&gt;
+353:                                         &lt;NA&gt;
+354: others (please specify in the next question)
+355:                                         &lt;NA&gt;
+356:                                         &lt;NA&gt;
+                                       Clustering
+                                           &lt;char&gt;
+  1:                                         &lt;NA&gt;
+  2:                                         &lt;NA&gt;
+  3:                                         &lt;NA&gt;
+  4: others (please specify in the next question)
+  5: others (please specify in the next question)
+ ---                                             
+352:                                         &lt;NA&gt;
+353: others (please specify in the next question)
+354: others (please specify in the next question)
+355:                                         &lt;NA&gt;
+356:                                         &lt;NA&gt;
+                                                                                                     Clustering...others
+                                                                                                                  &lt;char&gt;
+  1:                                                                                                                &lt;NA&gt;
+  2:                                                                                                                &lt;NA&gt;
+  3:                                                                                                                &lt;NA&gt;
+  4:                                                           stability of clusters--consensus score for each partition
+  5:                                                                                                                &lt;NA&gt;
+ ---                                                                                                                    
+352:                                                                                                                &lt;NA&gt;
+353: Visualisation of clustering and ability to highlight cell types in as dimension reduction interactive visualisation
+354:                                                                                                                &lt;NA&gt;
+355:                                                                                                                &lt;NA&gt;
+356:                                                                                                                &lt;NA&gt;
+                                   Classification
+                                           &lt;char&gt;
+  1:                                         &lt;NA&gt;
+  2:                                         &lt;NA&gt;
+  3:                                         &lt;NA&gt;
+  4: others (please specify in the next question)
+  5: others (please specify in the next question)
+ ---                                             
+352:                                         &lt;NA&gt;
+353: others (please specify in the next question)
+354: others (please specify in the next question)
+355:                                         &lt;NA&gt;
+356:                                         &lt;NA&gt;
+                                         Classification...others
+                                                          &lt;char&gt;
+  1:                                                        &lt;NA&gt;
+  2:                                                        &lt;NA&gt;
+  3:                                                        &lt;NA&gt;
+  4:                                                        &lt;NA&gt;
+  5:                                                        &lt;NA&gt;
+ ---                                                            
+352:                                                        &lt;NA&gt;
+353: If interactive visualisation addresses cell-type prediction
+354:                                                        &lt;NA&gt;
+355:                                                        &lt;NA&gt;
+356:                                                        &lt;NA&gt;
+     Variability.of.score Memory.measured Max.number.of.cells
+                   &lt;char&gt;          &lt;char&gt;               &lt;num&gt;
+  1:                  Yes              No                  NA
+  2:                  Yes             Yes               10132
+  3:                  Yes              No                4000
+  4:                  Yes              No                  NA
+  5:                  Yes              No                3918
+ ---                                                         
+352:                  Yes              No               68560
+353:                   No             Yes             2000000
+354:                   No             Yes             2000000
+355:                   No              No             1283543
+356:                   No              No             1283543
+     Sensitivity.analysis
+                   &lt;char&gt;
+  1:                  Yes
+  2:                   No
+  3:                   No
+  4:                   No
+  5:                   No
+ ---                     
+352:                  Yes
+353:                   No
+354:                   No
+355:                   No
+356:                   No
+                                                                                                                          Sensitivity.analysis.detail
+                                                                                                                                               &lt;char&gt;
+  1:                                 Exploring how the method performs when parameters of simulations are changed (changing sigma and range of radii)
+  2:                                                                                                                                             &lt;NA&gt;
+  3:                                                                                                                                             &lt;NA&gt;
+  4:                                                                                              The paper compared ARI scores for different methods
+  5:                                                                                                                                             &lt;NA&gt;
+ ---                                                                                                                                                 
+352:                                                                                                             varying numbers of latent dimensions
+353:                                                                                                                                             &lt;NA&gt;
+354:                                                                                                                                             &lt;NA&gt;
+355:                                                                                                                                             &lt;NA&gt;
+356: An analogous analysis we performed, based on agglomerative clustering instead of k-means, leads to similar concordance between net-SNE and t-SNE
+               Tuning
+               &lt;char&gt;
+  1:  Default setting
+  2:  Default setting
+  3:  Default setting
+  4: Parameter tuning
+  5: Parameter tuning
+ ---                 
+352:  Default setting
+353:  Default setting
+354:  Default setting
+355:  Default setting
+356:  Default setting
+                                        Downstream.analysis.details Discovery.
+                                                             &lt;char&gt;     &lt;char&gt;
+  1:                                         distance between cells        Yes
+  2:                               highly variable genes,clustering         No
+  3:                                                           &lt;NA&gt;         No
+  4:                        clustering,DE method,pathway enrichment         No
+  5:                                                           &lt;NA&gt;         No
+ ---                                                                          
+352: clustering, pathway enrichment, rare population identification         No
+353:                                                           &lt;NA&gt;         No
+354:                                                           &lt;NA&gt;         No
+355:                                                         NA, NA         No
+356:                       clustering, cell type identification, NA        Yes
+     Wet.lab.validation
+                 &lt;char&gt;
+  1:                 No
+  2:                 No
+  3:                Yes
+  4:                 No
+  5:                 No
+ ---                   
+352:                 No
+353:                 No
+354:                 No
+355:                 No
+356:                 No
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Recommendation.evidence
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     &lt;char&gt;
+  1:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            The spicyR package has many advantages compared to other dif- ferential co-localization strategies used in high parameter image ana- lysis.
+  2:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               Overall, Cell Ranger, alevin-fry performed slightly better on droplet-based datasets on average. Although slightly lower correlations were observed between zUMIs and other workflows, and it uniquely considers intron reads by default, we did not observe improved clustering results by applying it.
+  3:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           "However, consistently satisfactory results were observed for scran, Linnorm, DrImpute and SAVER for normalization and imputation; Seurat for cluster- ing; Monocle2 and Slingshot for trajectory analysis; and MNNs for data integration. "
+  4: We compared ChromSCape to methods specifically designed for single-cell epigenomic datasets(scATAC-seq) for their ability to identify cell identities. Based on a recent scATAC-seq benchmark9, we selected the topperforming methods, namely Cusanovich201812, SnapATAC10, and CisTopic11. We also benchmarked EpiScanpy15, a recent analysis pipeline for various single-cell epigenomic data (scATAC-seq, scDNA methylation, …) developed in Python. We applied hierarchical clustering on the reduced feature space\nobtained by each method and used an ARI metric to evaluate their ability to identify cell phenotypes. ChromSCape with default parameters manages to separate almost perfectly the 4 cell types, with an ARI of 0.998 (Fig. 2a), as Cusanovich2018 and CisTopic (both an ARI of 0.996, Fig. 2b), followed closely by EpiScanpy (ARI of 0.940, Fig. 2b). ChromSCape, EpiScanpy, and SnapATAC were all run on 50 kbp bins, but SnapATAC had noisier clusters\nand a slightly poorer ARI (0.822).
+  5:                                                                                                                                                                                                                                                                                             Filtering:Doublet detection and removal is advised and can be performed at little computing cost with software such as scDblFinder or scds\nNormalisation: sctransform offered the best overall performance in terms of the separability of the subpopulations\nFeature selection: Deviance [40] offered the best ranking of genes for feature selection\nImputation: We found especially ALRA (with prior normalization), DrImpute (with prior processing), and DCA to offer the best performances\nPCA: we recommend the irlba-based PCA using weighting of the components, as implemented in Seurat\nClustering: scran-based walktrap clustering provided reasonable estimates, although at greater computational costs
+ ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+352:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           In summary, SIMLR can determine which cells are similar in a way that generalizes across different single-cell data sets for dimension reduction, clustering and visualization applications.
+353:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    From our personal experience and partly supported by benchmarking, we currently recommend using cellxgene for publishing and sharing scRNAseq data.
+354:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    From our personal experience and partly supported by benchmarking, we currently recommend using cellxgene for publishing and sharing scRNAseq data.
+355:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   &lt;NA&gt;
+356:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    net-SNE can accurately position entire new subtypes of cells from previously unseen datasets and can also be used to reduce the runtime of visualizing 1.3 million cells by 36-fold
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  Applicability.evidence
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  &lt;char&gt;
+  1:                                                                                                                                                           It is important to acknowledge that spicyR should not be used in isolation to other analysis techniques, with the package being a key step in a broader analysis pipeline for high parameter imaging data. Firstly, spicyR is contingent on single-cell segmentation and cell-type classification (unsupervised or manually gated) being suffi- ciently accurate to elicit biologically relevant results.
+  2:                                                                                                                                                                                                                                                                                                    Our analysis revealed that kallisto bustools (v0.39.3) was unsuitable for use on CEL-Seq2 data due to its UMI handling strategy, which limits the dynamic range that can be observed in the presence of short UMIs (6bp in the case of these CEL-Seq2 datasets).
+  3:                                                                                                                                        "By evaluating the results from method combinations across different tasks, we observed a number of interesting trends related to the suitability of different preprocessing methods in downstream analysis. For example, we found that although imputation generally improved the results of clustering and trajectory analyses, it can lead to poor mixing of data from dif- ferent batches in data integration analyses "
+  4:                                                                                                                                                                                                                                                                                                                 ChromSCape accepts multiple samples to allow comparisons of cell populations between and within samples. It can determine cell identities from single-cell histone modification\nprofiles, whatever the technology, as well as scATAC-seq datasets.
+  5:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                &lt;NA&gt;
+ ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+352:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                &lt;NA&gt;
+353:                                                                                                                                                              Our results show that each tool has particular advantages and disadvantages and as such a simple ranking cannot be achieved. We looked specifically at the tools suitable for sharing an interactive visualization of results via a web interface (the Web Sharing row in Table 1). Again, in this case there is not one tool that stands out as significantly better than the rest in all categories.
+354: Figure 1 summarizes the benchmarking results. iSEE-loom, SCope, scSVA and loom-viewer all enable efficient integration with the hierarchical data format (HDF5) from which loom and h5ad formats are derived. HDF5 format allows for on-demand loading, i.e. the necessary data is only loaded inRAMwhen it is needed by the application. In this case, at the start the tools only use the coordinates of the cells without loading other input data into memory. scSVA and loom-viewer are the most efficient HDF5-backed tools with SCope being slightly slower.
+355:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                &lt;NA&gt;
+356:                                                                                                                                                                                                                                                                                                                                                                                                                                                We found that for all of the datasets net-SNE is able to learn an embedding that closely matches the output of t-SNE
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           Trade.off.evidence
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       &lt;char&gt;
+  1:                                                                                                                                                                                                                                  Thirdly, there are trade-offs to using small versus large radii when applying spicyR. Large radii may provide a better overall summary of cell-type co-localization within an image, but can have decreased sensitivity, particularly if the co-localization occurs strongly only over short distances.
+  2:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     &lt;NA&gt;
+  3:                                                                                                             "By evaluating the results from method combinations across different tasks, we observed a number of interesting trends related to the suitability of different preprocessing methods in downstream analysis. For example, we found that although imputation generally improved the results of clustering and trajectory analyses, it can lead to poor mixing of data from dif- ferent batches in data integration analyses "
+  4:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     &lt;NA&gt;
+  5:                                                                                                                                                                                                                                                                                                                                                                                                                                   scran-based walktrap clustering provided reasonable estimates, although at greater computational costs
+ ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+352:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     &lt;NA&gt;
+353:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     &lt;NA&gt;
+354: For four tools (iSEE-SCE, Single Cell Explorer, UCSC Cell Browser and cellxgene) the preprocessing memory and preprocessing time grow exponentially with the number of input\ncells. Among these four tools cellxgene has the shortest preprocessing times. Cellxgene performs well in terms of both memory and preprocessing times (Figure 1) and leads by the UX scores (Table 2). It also has a thriving community, is the most supported (Table 1) with 24 contributors and has the highest developer activity in the last 2 months.
+355:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     &lt;NA&gt;
+356:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     &lt;NA&gt;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  Future.evidence.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            &lt;char&gt;
+  1:                                                                                                                                                                                                                                                                                                                                                            There may be further scope for producing biologically relevant ground truths with which spicyR can be tested against, as well as more complicated simulation studies to elicit the effective- ness of the package.
+  2:                                                                                                                                                                                                                                                                                                                                                                                                                                     Extending our benchmarking to cover additional protocols, new preprocessing methods, and other data analysis tasks is left as future work
+  3:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          &lt;NA&gt;
+  4:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          &lt;NA&gt;
+  5:                                                                                                                                      With respect to the methods themselves, we believe there is still space for improvement in some of the steps. Concerning cell filtering, we noticed that the current approach based on whole-population characteristic (e.g., MAD cut-off) can be biased against certain subpopulations, suggesting that more refined methods expecting multimodal distributions should be used rather than relying on whole-population characteristics.
+ ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+352:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          &lt;NA&gt;
+353:                                                                                                                                                                                                                                                                                                                                                                                                                                    Additionally, there are several efforts to enrich visualizations by either using a 3D plot instead of 2D or even by using virtual reality.
+354: One way of optimization is to add integration with the HDF5 format as supported by our results in Figure 1. A simpler approach is to down-sample the data by selecting a small subset of cells in a random manner.\nAdditionally, there are several efforts to enrich visualizations by either using a 3Dplot instead of 2D (18,33) or even by using virtual reality (34). The third dimension may allow\nresolution of cell-types not visible in two dimensions. Virtual reality can support multiple embeddings in the same VR space so that they can be directly compared.
+355:                                                                                                                            While embedding all cell types in a space with as few as two or three dimensions is unlikely to be successful given the complexity of the problem, we believe that insights from net-SNE and its future extensions may lead to an effective approach for learning compact vector space representations of all human cells that can be readily plugged into new and existing computational methods to further advance our understanding of biology.
+356:                                                                                                                                                                                                                                                                               we believe that insights from net-SNE and its future extensions may lead to an effective approach for learning compact vector space representations of all human cells that can be readily plugged into new and existing computational methods to further advance our understanding of biology.
+     Website Data.availability Package.availability Prior.knowledge
+      &lt;char&gt;            &lt;char&gt;               &lt;char&gt;          &lt;char&gt;
+  1:      No               Yes                  Yes             Yes
+  2:      No                No                  Yes              No
+  3:      No               Yes                  Yes              No
+  4:      No                No                  Yes             Yes
+  5:      No               Yes                  Yes              No
+ ---                                                               
+352:      No                No                  Yes             Yes
+353:      No                No                   No              No
+354:      No                No                   No             Yes
+355:      No                No                  Yes              No
+356:      No                No                  Yes             Yes
+         Types.of.data Number.of.experimental.datasets
+                &lt;char&gt;                           &lt;int&gt;
+  1:              Both                               3
+  2: Experimental data                              12
+  3: Experimental data                              14
+  4: Experimental data                               9
+  5:              Both                               7
+ ---                                                  
+352:              Both                               7
+353: Experimental data                               1
+354: Experimental data                               1
+355: Experimental data                              13
+356: Experimental data                              13
+     Number.of.synthetic.datasets
+                            &lt;int&gt;
+  1:                         1000
+  2:                           NA
+  3:                           14
+  4:                            0
+  5:                            2
+ ---                             
+352:                            4
+353:                           NA
+354:                           NA
+355:                           NA
+356:                           NA
+                                                                                                                      Experimental.diversity
+                                                                                                                                      &lt;char&gt;
+  1: different tissue types--different cell types--different biological complexity--different time point--different number of cell types--NA
+  2:                                        different sequencing protocol--different organisms--different cell lines--different tissue types
+  3:                                                                                                                                    &lt;NA&gt;
+  4:                                                                                                                    different cell types
+  5:                                                                                                                                    &lt;NA&gt;
+ ---                                                                                                                                        
+352:   different organisms--different sequencing protocol--different tissue types--different number of cell types--different number of cells
+353:                                                                                                                                    &lt;NA&gt;
+354:                                                                                                                                    &lt;NA&gt;
+355:                                                 different sequencing protocol--different cell types--different number of cell types--NA
+356:                                                                                                                different cell types--NA
+     Diversity.of.experimental.data
+                             &lt;char&gt;
+  1:                            Yes
+  2:                            Yes
+  3:                             No
+  4:                            Yes
+  5:                             No
+ ---                               
+352:                            Yes
+353:                             No
+354:                             No
+355:                            Yes
+356:                            Yes
+                                                                                                                                                                                                                                  Details.on.discovery
+                                                                                                                                                                                                                                                &lt;char&gt;
+  1: However, using the mixed-effects model there was a decrease in co-localization between delta cells and beta cells (from beta to delta: P 1⁄4 0.008, Supplementary Table S2) suggesting a pattern to the way that beta cells degrade in the islet.
+  2:                                                                                                                                                                                                                                              &lt;NA&gt;
+  3:                                                                                                                                                                                                                                              &lt;NA&gt;
+  4:                                                                                                                                                                                                                                              &lt;NA&gt;
+  5:                                                                                                                                                                                                                                              &lt;NA&gt;
+ ---                                                                                                                                                                                                                                                  
+352:                                                                                                                                                                                                                                              &lt;NA&gt;
+353:                                                                                                                                                                                                                                              &lt;NA&gt;
+354:                                                                                                                                                                                                                                              &lt;NA&gt;
+355:                                                                                                                                                                                                                                              &lt;NA&gt;
+356:                                                                                                                                                             Unlike t-SNE, net-SNE is able to identify the newly added cells as a separate cluster
+                                          Wet.lab.details Recommendation
+                                                   &lt;char&gt;         &lt;char&gt;
+  1:                                                 &lt;NA&gt;            Yes
+  2:                                                 &lt;NA&gt;            Yes
+  3: cell culture was done to generate the benchmark data            Yes
+  4:                                                 &lt;NA&gt;            Yes
+  5:                                                 &lt;NA&gt;            Yes
+ ---                                                                    
+352:                                                 &lt;NA&gt;            Yes
+353:                                                 &lt;NA&gt;            Yes
+354:                                                 &lt;NA&gt;            Yes
+355:                                                 &lt;NA&gt;             No
+356:                                                 &lt;NA&gt;            Yes
+     Applicability Trade.offs Future.directions Diversity.of.synthetic.datasets
+            &lt;char&gt;     &lt;char&gt;            &lt;char&gt;                          &lt;char&gt;
+  1:           Yes        Yes               Yes                             Yes
+  2:           Yes         No               Yes                            &lt;NA&gt;
+  3:           Yes        Yes                No                            &lt;NA&gt;
+  4:           Yes         No                No                            &lt;NA&gt;
+  5:            No        Yes               Yes                              No
+ ---                                                                           
+352:            No         No                No                             Yes
+353:           Yes         No               Yes                            &lt;NA&gt;
+354:           Yes        Yes               Yes                            &lt;NA&gt;
+355:            No         No               Yes                            &lt;NA&gt;
+356:           Yes         No               Yes                            &lt;NA&gt;
+                                                               Synthetic.diversity
+                                                                            &lt;char&gt;
+  1:                                                                          &lt;NA&gt;
+  2:                                                                          &lt;NA&gt;
+  3:                                                                          &lt;NA&gt;
+  4:                                                                          &lt;NA&gt;
+  5:                                                                          &lt;NA&gt;
+ ---                                                                              
+352: different number of cells--different distribution--different noise levels--NA
+353:                                                                          &lt;NA&gt;
+354:                                                                          &lt;NA&gt;
+355:                                                                          &lt;NA&gt;
+356:                                                                          &lt;NA&gt;
+                                                                                                                                                                                                                                                                  Details.on.selection.criteria
+                                                                                                                                                                                                                                                                                         &lt;char&gt;
+  1:                                                                                                                                                                                                                                                                                       &lt;NA&gt;
+  2:                                                                                                                                                                                                                                                                                       &lt;NA&gt;
+  3:                                                                                                                    normalisation - eight popular normalization methods , clustering -  five representative clustering methods ,  data integration - state-of-the-art methods including xxx
+  4:                                                                                                                                                                                                                                                                  They included all methods
+  5:                                                                                                                                                                                                                                                                                       &lt;NA&gt;
+ ---                                                                                                                                                                                                                                                                                           
+352:                                                                                                                                                                                These three clustering methods are model based algorithms that have been used in recent single-cell studies
+353: We initially consider 13 popular interactive analysis and visualization tools and give an overview of their features. We then select those tools that provide web sharing functionality and benchmark them against each other by means of their performance on datasets of different sizes
+354:                             We select those tools that provide web sharing functionality and benchmark them against each other by means of their performance on datasets of different sizes (from 5000 to 2 million cells).We also evaluated user experience (UX) features of these tools.
+355:                                                                                                                                                                                                                                                                                       &lt;NA&gt;
+356:                                                                                      standard methods, such as t-stochastic neighbor embedding (t-SNE), are not scalable to datasets with millions of cells and the resulting visualizations cannot be generalized to analyze new datasets
+     Speed.measured. Overall.comparison
+              &lt;char&gt;             &lt;char&gt;
+  1:             Yes                 No
+  2:             Yes                 No
+  3:             Yes                Yes
+  4:              No                 No
+  5:             Yes                 No
+ ---                                   
+352:             Yes                 No
+353:             Yes                Yes
+354:             Yes                Yes
+355:             Yes                 No
+356:             Yes                 No
+     Multi.omics.integration..unmatched....others
+                                           &lt;char&gt;
+  1:                                         &lt;NA&gt;
+  2:                                         &lt;NA&gt;
+  3:                                         &lt;NA&gt;
+  4:                                         &lt;NA&gt;
+  5:                                         &lt;NA&gt;
+ ---                                             
+352:                                         &lt;NA&gt;
+353:                                         &lt;NA&gt;
+354:                                         &lt;NA&gt;
+355:                                         &lt;NA&gt;
+356:                                         &lt;NA&gt;
+                                          Batch.correction...others
+                                                             &lt;char&gt;
+  1:                                                           &lt;NA&gt;
+  2:                                                           &lt;NA&gt;
+  3:                                                           &lt;NA&gt;
+  4: removal of any known batch effect in the reduced feature space
+  5:                                                           &lt;NA&gt;
+ ---                                                               
+352:                                                           &lt;NA&gt;
+353:                                                           &lt;NA&gt;
+354:                                                           &lt;NA&gt;
+355:                                                           &lt;NA&gt;
+356:                                                           &lt;NA&gt;
+                                                                                                                                                                               If.you.paper.category.is.not.covered..please.write.down.what.criteria.you.paper.looked.at..thanks.
+                                                                                                                                                                                                                                                                           &lt;char&gt;
+  1:                                                                                                                                                                                                                                                                         &lt;NA&gt;
+  2:                                                                                                                                                                                                                                                                         &lt;NA&gt;
+  3:                                                                                                                                                                                                                                                                         &lt;NA&gt;
+  4:                                                                                                                                                                                                                                                                         &lt;NA&gt;
+  5:                                                                                                                                                                                                                                                                         &lt;NA&gt;
+ ---                                                                                                                                                                                                                                                                             
+352: - comparison with dimension reduction (clustering accuracy, purity, adjusted rand index, linear error, quadratic discrimination error, nearest neighbour error, normalised mutual information) \n- comparison with clustering  \n- comparison with matrix completion methods
+353:                                                                                                                                                                          UX of interactive visualisation tools - zoom in/out--ease of selection--how fast the web page loads
+354:                                                                                                                                                                                                                                                                         &lt;NA&gt;
+355:                                                                                                                                                                                                                                                          Dimension Reduction
+356:                                                                                                                                                                                                                                                                Visualisation
+              Multi.omics.integration..unmatched.
+                                           &lt;char&gt;
+  1:                                         &lt;NA&gt;
+  2:                                         &lt;NA&gt;
+  3:                                         &lt;NA&gt;
+  4: others (please specify in the next question)
+  5: others (please specify in the next question)
+ ---                                             
+352:                                         &lt;NA&gt;
+353:                                         &lt;NA&gt;
+354: others (please specify in the next question)
+355:                                         &lt;NA&gt;
+356:                                         &lt;NA&gt;
+     Multi.omics.integration..matched....others
+                                         &lt;char&gt;
+  1:                                       &lt;NA&gt;
+  2:                                       &lt;NA&gt;
+  3:                                       &lt;NA&gt;
+  4:                                       &lt;NA&gt;
+  5:                                       &lt;NA&gt;
+ ---                                           
+352:                                       &lt;NA&gt;
+353:                                       &lt;NA&gt;
+354:                                       &lt;NA&gt;
+355:                                       &lt;NA&gt;
+356:                                       &lt;NA&gt;
+                                                                                                                                                        Details.on.prior.knowledge
+                                                                                                                                                                            &lt;char&gt;
+  1: This suggests a migration of Th and Tc cells towards beta cells (Fig. 4B), specifically during the early disease stages, reiter- ating the results presented by Damond et al.
+  2:                                                                                                                                                                          &lt;NA&gt;
+  3:                                                                                                                                                                          &lt;NA&gt;
+  4:                                         To enable process single-cell epigenomic data to assist the biological interpretation of chromatin landscapes within cell populations
+  5:                                                                                                                                                                          &lt;NA&gt;
+ ---                                                                                                                                                                              
+352:                                                                                                       we were able to identify each cell type based on the top 5 gene markers
+353:                                                                                                                                                                          &lt;NA&gt;
+354:                                                                                                        Precalculated clustering assignments and tSNE coordinates and metadata
+355:                                                                                                                                                                          &lt;NA&gt;
+356:                       net-SNE learns visualizations that are similar to those of t-SNE on 14 scRNA-seq datasets of various cell types and data sizes up to 1.3 million cells.
+     Downstream.analysis     PMID                     journal_name
+                  &lt;char&gt;   &lt;char&gt;                           &lt;char&gt;
+  1:                 Yes 35438129 Bioinformatics (Oxford, England)
+  2:                 Yes 34906205                   Genome biology
+  3:                  No 31133762                   Nature methods
+  4:                 Yes 33177523            Nature communications
+  5:                  No 32873325                   Genome biology
+ ---                                                              
+352:                 Yes 28263960                   Nature methods
+353:                  No 32766548  NAR genomics and bioinformatics
+354:                  No 32766548  NAR genomics and bioinformatics
+355:                 Yes 29936184                     Cell systems
+356:                 Yes 29936184                     Cell systems
+     publication_date impact_factor            data_type      broader_topic
+               &lt;char&gt;         &lt;num&gt;               &lt;char&gt;             &lt;char&gt;
+  1:      2022 May 26         6.931      Spatial imaging Analysis pipelines
+  2:      2021 Dec 14        17.906  Single-cell RNA-seq Analysis pipelines
+  3:      2019 May 27        47.990  Single-cell RNA-seq Analysis pipelines
+  4:      2020 Nov 11        17.000 Single-cell ATAC-seq Analysis pipelines
+  5:       2020 Sep 1        17.906  Single-cell RNA-seq Analysis pipelines
+ ---                                                                       
+352:       2017 Mar 6        47.990  Single-cell RNA-seq   Initial analysis
+353:      2020 Jul 29            NA  Single-cell RNA-seq   Initial analysis
+354:      2020 Jul 29            NA  Single-cell RNA-seq   Initial analysis
+355:      2018 Aug 22        11.091  Single-cell RNA-seq   Initial analysis
+356:      2018 Aug 22        11.091  Single-cell RNA-seq   Initial analysis
+            finer_topic  year    biorxiv_post_date biorxiv_number_dataset
+                 &lt;char&gt; &lt;int&gt;               &lt;char&gt;                 &lt;char&gt;
+  1: Analysis pipelines  2022        June 07, 2021                      3
+  2: Analysis pipelines  2021        June 17, 2021                     10
+  3: Analysis pipelines  2019                 &lt;NA&gt;                   &lt;NA&gt;
+  4: Analysis pipelines  2020        July 22, 2019                      4
+  5: Analysis pipelines  2020    February 02, 2020                      9
+ ---                                                                     
+352:      Visualisation  2017         May 09, 2016                      4
+353:      Visualisation  2020 \xa0January 25, 2020                      1
+354:      Visualisation  2020 \xa0January 25, 2020                      1
+355:      Visualisation  2018                 &lt;NA&gt;                   &lt;NA&gt;
+356:      Visualisation  2018                 &lt;NA&gt;                   &lt;NA&gt;
+     biorxiv_number_method biorxiv_number_reference number_reference topic_year
+                     &lt;int&gt;                    &lt;int&gt;            &lt;int&gt;      &lt;int&gt;
+  1:                     0                       22               25       2016
+  2:                     9                       65               77       2016
+  3:                    NA                       NA               58       2016
+  4:                     3                       23               30       2016
+  5:                    24                       45               67       2016
+ ---                                                                           
+352:                     8                       27               25       2010
+353:                    13                       31               34       2010
+354:                    13                       31               34       2010
+355:                    NA                       NA               NA       2010
+356:                    NA                       NA               NA       2010
+     norm_year topic_year2 norm_year2 deidentified_name used_for_pilot
+        &lt;char&gt;       &lt;int&gt;     &lt;char&gt;            &lt;char&gt;         &lt;lgcl&gt;
+  1:    Year 6        2016     Year 6           person1          FALSE
+  2:    Year 5        2016     Year 5           person2          FALSE
+  3:    Year 3        2016     Year 3           person3          FALSE
+  4:    Year 4        2016     Year 4           person4          FALSE
+  5:    Year 4        2016     Year 4           person4          FALSE
+ ---                                                                  
+352:    Year 7        2014     Year 3           person3          FALSE
+353:   Year 10        2014     Year 6          person22          FALSE
+354:   Year 10        2014     Year 6           person4          FALSE
+355:    Year 8        2014     Year 4           person2          FALSE
+356:    Year 8        2014     Year 4           person4          FALSE</code></pre>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div>
+<div id="evaluation-summary" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-evaluation-summary">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="card tabset html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-header dashboard-card-no-title bslib-navs-card-title">
+
+<ul class="nav nav-tabs card-header-tabs" role="tablist" data-tabsetid="card-tabset-10"><li class="nav-item" role="presentation"><a href="#card-tabset-10-1" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="Journal" aria-selected="true" class="nav-link active">Journal</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-10-2" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="Publication Year" aria-selected="false" class="nav-link">Publication Year</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-10-3" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="Category Frequency" aria-selected="false" class="nav-link">Category Frequency</a></li><li class="nav-item" role="presentation"><a href="#card-tabset-10-4" role="tab" data-toggle="tab" data-bs-toggle="tab" data-value="Statistics" aria-selected="false" class="nav-link">Statistics</a></li></ul></div>
+
+
+
+
+<div class="tab-content html-fill-item html-fill-container" data-tabset-id="card-tabset-10"><div class="tab-pane active show html-fill-item html-fill-container" role="tabpanel" id="card-tabset-10-1"><div class="card-body html-fill-item html-fill-container" data-title="Journal">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: ;
+grid-auto-rows: minmax(0, 1fr);">
+
+</div>
+</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-10-2"><div class="card-body html-fill-item html-fill-container" data-title="Publication Year">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: ;
+grid-auto-rows: minmax(0, 1fr);">
+
+</div>
+</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-10-3"><div class="card-body html-fill-item html-fill-container" data-title="Category Frequency">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: ;
+grid-auto-rows: minmax(0, 1fr);">
+
+</div>
+</div></div><div class="tab-pane html-fill-item html-fill-container" role="tabpanel" id="card-tabset-10-4"><div class="card-body html-fill-item html-fill-container" data-title="Statistics">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container flow">
+Statistics
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div></div></div><bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+<div id="general-information" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-general-information">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: ; grid-auto-columns: minmax(0, 1fr);">
+<div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+</div>
+
+
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (_event) {
+  if (window.bslib.Card) {
+    window.bslib.Card.initializeAllCards();
+  }
+}); 
+</script>
+  
+
+
+
+</body></html>
