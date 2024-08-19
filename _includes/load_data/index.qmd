@@ -1,0 +1,45 @@
+```{r}
+#| label: load-packages
+#| echo: false
+#| include: false
+
+library(tidyverse)
+library(DT)
+library(data.table)
+library(bslib)
+library(bsicons)
+library(shinyWidgets)
+library(plotly)
+library(sunburstR)
+library(wordcloud2)
+library(wordcloud)
+library(networkD3)
+library(packcircles)
+#library(streamgraph)
+library(lazyeval)
+library(ggstream)
+library(ggwordcloud)
+library(lazyeval)
+library(ggstream)
+library(RColorBrewer)
+```
+
+```{r}
+#| label: read data
+#| echo: false
+
+data <- read.csv("data/data.csv")
+
+paper_links <- read.csv("data/sc_bench_benchmark_links.csv")
+
+sankey_target_order <- c(
+  "Data",
+  "Initial analysis",
+  "Intermediate analysis",
+  "Downstream analysis",
+  "Analysis pipelines"
+)
+
+
+
+```

@@ -1,0 +1,62 @@
+```{r}
+#| title: Result table
+#| label: Result_table
+#| echo: false
+
+filtered_columns <- c(
+  "luke_topic",
+  "Paper.title",
+  "Paper.category",
+  "Methods.compared",
+  "Selection.criteria",
+  "Variability.of.score",
+  "Memory.measured",
+  "Max.number.of.cells",
+  "Sensitivity.analysis",
+  "Discovery.",
+  "Website",
+  "Data.availability",
+  "Prior.knowledge",
+  "Types.of.data",
+  "Number.of.experimental.datasets",
+  "Number.of.synthetic.datasets",
+  "Recommendation",
+  "Applicability",
+  "Speed.measured.",
+  "Overall.comparison",
+  "journal_name",
+  "publication_date",
+  "data_type",
+  "broader_topic",
+  "finer_topic"
+)
+
+filtered_data <- data %>% select(filtered_columns)
+
+filtered_data$luke_topic <- factor(data$luke_topic)
+filtered_data$Paper.category <- factor(data$Paper.category)
+filtered_data$Types.of.data <- factor(data$Types.of.data)
+filtered_data$journal_name <- factor(data$journal_name)
+filtered_data$data_type <- factor(data$data_type)
+filtered_data$broader_topic <- factor(data$broader_topic)
+filtered_data$finer_topic <- factor(data$finer_topic)
+
+DT::datatable(
+  filtered_data,
+  options = list(
+    pageLength = 10,
+    scrollX = TRUE,
+    searching = TRUE,
+    autoWidth = TRUE,
+    dom = '<"top"flip>rt',
+    columnDefs = list(
+      list(width = '150px', targets = c(1, 23, 24, 25)),
+      list(width = '200px', targets = 2)
+    )
+  ),
+  filter = "top",
+  class = 'stripe compact',
+  style = 'bootstrap'
+)
+
+```

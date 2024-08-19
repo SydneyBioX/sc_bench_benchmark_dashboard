@@ -1,0 +1,37 @@
+<!-- ### <center>[**The current landscape and emerging challenges of benchmarking single-cell  methods**](https://www.biorxiv.org/content/10.1101/2023.12.19.572303v1)<center> -->
+
+<div style="text-align: center;">
+  <h3>
+    <a href="https://www.biorxiv.org/content/10.1101/2023.12.19.572303v1" target="_blank">
+      **The current landscape and emerging challenges of benchmarking single-cell methods**
+    </a>
+  </h3>
+</div>
+
+**Introduction**
+
+A comprehensive evaluation strategy is critical for single-cell methodological development to assess the applicability of the method and to examine under what circumstances it works or fails.Informative evaluation results can drive the direction of method refinement. As a result, method development and evaluation should be considered as an iterative process. 
+
+Such evaluation should be distinguished from benchmarking purely based on evaluation metrics, as it aims to not only provide the method developers with a better understanding of their own methods but also demonstrate to the biologists how they can use the developed methods to gain new biological insights, which is what all the computational methods should be developed for. Due to the complexity of single-cell omics data, several key aspects should be taken into account while evaluating single-cell computational methods, including: 
+
+**Accuracy**
+
+Whether the method does what it is designed to do. For example, data integration methods should remove the dataset effect and other unwanted variations while retaining the biological signals; and cell type classification methods should accurately classify the cell types and reveal the novel cell types that are not in the reference data. This aspect can usually be quantified by evaluation metrics, such as silhouette coefficients, adjusted rand index, Local Inverse Simpson's Index (LISI) *harmony* and kBET*buttner2017assessment* for data integration methods; and classification accuracy and F1-score for cell type classification methods.
+
+**Scalability**
+
+Whether the method can handle large-scale single-cell data in a computationally efficient manner. This requires benchmarking both the computational time and memory usage of the method.
+
+**Stability**
+
+-   Generalisability and Applicability (Stability of input): whether the method can be applied to data with different properties. This involves evaluating the developed method on data from diverse technologies (low- and high-throughput methods), tissues, organisms, stages (developmental and well-differentiated stages), disease, and sample sizes (tissue-specific and atlas-scale).
+
+-   Robustness (Stability of model): whether the method is robust to noise in the data and the choice of hyper parameter. It can be evaluated by whether the method's performance is significantly impacted when (i) only a subset of data is used; (ii) simulated noise is introduced into the data and (iii) models are run using different hyper parameter settings.
+
+-   Reproducibility (Stability of output): technical vs broader. Whether the method produce same result when repeated with the same setting 
+
+**Interpretability**
+
+-   Impact on downstream analysis: whether applying the method improves or hinders the performance of downstream analysis that is described in Section *downstream*. For example, for data integration of developmental data, it is important that the integrated data preserve the continuous signals so that the trajectory analysis can be applied to infer the pseudotime. For example, batch correction methods that return adjusted matrix would be more useful than methods that return embedding. 
+
+-   Biological impact: whether the developed method can help biologists to gain new biological insights. For example, data integration of multi-omics that is able to reveal rare and novel cell types, which could not be identified using single omics, would allow biologists to examine the cell characteristics of such rare cell types.

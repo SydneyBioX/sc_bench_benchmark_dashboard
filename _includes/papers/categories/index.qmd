@@ -1,0 +1,109 @@
+##### Row {height="20%"}
+
+
+```{r}
+#| content: valuebox
+#| title: "Pure benchmark papers"
+list(
+  icon = "database-gear",
+  color = "warning",
+  value = length(unique(data$Paper.title[data$Paper.category == "Pure benchmarking paper"]))
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "New method development papers"
+list(
+  icon = "database-gear",
+  color = "info",
+  value = length(unique(data$Paper.title[data$Paper.category == "New method development paper"]))
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Total number of readers"
+list(
+  icon = "eyeglasses",
+  color = "success",
+  value = length(unique(data$deidentified_name))
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Total number of reading"
+list(
+  icon = "book",
+  color = "danger",
+  value = nrow(data)
+)
+```
+
+
+##### Row {height="40%"}
+
+
+```{r}
+#| title: "Pure benchmark papers"
+#| layout-ncol: 2
+#| label: "paper - Categories - Pure benchmark papers"
+
+sunburst_df <- generateSunburstData(data, "Pure benchmarking paper")
+
+plot_ly(
+  data = sunburst_df,
+  ids = ~ ids,
+  labels = ~ labels,
+  parents = ~ parents,
+  type = 'sunburst',
+  values = ~ values,
+  insidetextorientation = 'radial'
+)
+
+# sankey_target_order <- c(
+#   "Data",
+#   "Initial analysis",
+#   "Intermediate analysis",
+#   "Downstream analysis",
+#   "Analysis pipelines"
+# )
+
+# filtered_data <- subset(data, Paper.category == "Pure benchmarking paper")
+# sankey_source_order <- sort(unique(filtered_data$data_type))
+# print(sankey_source_order)
+
+generateSankeyDiagData(data, "Pure benchmarking paper")
+
+
+```
+
+
+
+##### Row {height="40%"}
+
+```{r}
+#| title: "New method development papers"
+#| layout-ncol: 2
+#| label: "paper - Categories - New method development paper"
+
+sunburst_df <- generateSunburstData(data, "New method development paper")
+
+plot_ly(
+  data = sunburst_df,
+  ids = ~ ids,
+  labels = ~ labels,
+  parents = ~ parents,
+  type = 'sunburst',
+  values = ~ values,
+  insidetextorientation = 'radial'
+)
+
+
+generateSankeyDiagData(data, "New method development paper")
+
+
+```
+
+

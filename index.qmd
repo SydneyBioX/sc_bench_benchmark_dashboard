@@ -8,33 +8,25 @@ format:
       - slate
       - custom.scss
     nav-buttons: [github, twitter]
+
 ---
 
-```{r}
-#| label: load-packages
-#| echo: false
-#| include: false
-
-library(tidyverse)
-library(DT)
-library(data.table)
-library(bslib)
-library(bsicons)
-```
-
-<!-- ```{r, displayUsername}
-#| echo: false
-#| message: false
-paste0("My username is:", Sys.getenv("MY_USERNAME"))
-``` -->
+{{< include ./_includes/load_data/index.qmd >}}
 
 ```{ojs}
-//| label: load-data
 //| echo: false
-//| message: false
+//| output: false
 
-data = FileAttachment("data/data.csv")
-  .csv({ typed: true })
+d3 = require("d3@7")
+topojson = require("topojson")
+
+```
+
+```{ojs}
+//| echo: false
+//| output: false
+
+data_o = FileAttachment("data/data2.csv").csv({ typed: true })
 
 ```
 
@@ -42,139 +34,18 @@ data = FileAttachment("data/data.csv")
 
 ## Column {width="100%"}
 
-### Row {.tabset}
-
-#### Category
-
-###### Row {height="20%"}
-
-```{r}
-#| content: valuebox
-#| title: "Valuebox 1"
-list(
-  icon = "book",
-  color = "warning",
-  value = 3
-)
-```
-
-```{r}
-#| content: valuebox
-#| title: "Valuebox 2"
-list(
-  icon = "book",
-  color = "info",
-  value = 4
-)
-```
-
-```{r}
-#| content: valuebox
-#| title: "Valuebox 3"
-list(
-  icon = "trash",
-  color = "danger",
-  value = 10
-)
-```
-
-::: {.valuebox icon="arrow-repeat" color="vb-warning"}
-In Progress
-
-3 4
-:::
-
-
-###### Row {height="80%"}
-
-```{r}
-#| title: Pure or New method
-
-
-```
-
-Placeholder for Pure and method
-
-#### Survey Analysis
-
-##### Row {height="15%"}
-
-Placeholder text for top row (Selection)
-
-##### Row {height="85%"}
-
-::: {.card title="card Title"}
-This is a card
-:::
-
-```{r}
-#| title: card title
-
-```
+{{< include ./_includes/papers/index.qmd >}}
 
 # Data overview
 
 ## Column {width="100%"}
 
-```{r}
-data.table(data)
-```
+{{< include ./_includes/overview/index.qmd >}}
 
 # Evaluation Summary
 
-## Row {.tabset}
-
-### Journal
-
-#### Column {width="50%"}
-
-```{r}
-#| title: Pure Benchmark
-```
-
-#### Column {width="50%"}
-
-```{r}
-#| title: New Method
-```
-
-### Publication Year
-
-#### Column {width="50%"}
-
-```{r}
-#| title: Pure Benchmark
-
-```
-#### Column {width="50%"}
-
-```{r}
-#| title: New Method
-```
-
-### Category Frequency
-
-#### Column {width="50%"}
-
-```{r}
-#| title: Pure Benchmark
-```
-
-#### Column {width="50%"}
-
-```{r}
-#| title: New Method
-```
-
-
-### Statistics
-
-
-```{r}
-#| title: List of statistics
-```
-Statistics
+{{< include ./_includes/evaluation/index.qmd >}}
 
 # General Information
 
-{{<include information/index.qml}}
+{{< include ./_includes/information/index.qmd >}}

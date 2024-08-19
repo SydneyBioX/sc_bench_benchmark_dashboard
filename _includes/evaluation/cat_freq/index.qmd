@@ -1,0 +1,43 @@
+#### Column {width="50%"}
+
+```{r}
+#| title: Pure Benchmark
+#| echo: false
+#| label: "Evaluation - category freq - Pure benchmark"
+
+freq_data <- data %>%
+  filter(Paper.category == "Pure benchmarking paper") %>%
+  select(finer_topic)
+
+colnames(freq_data) <- "word"
+
+freq_data <- as.data.frame(table(freq_data))
+colnames(freq_data) <- c("word", "freq")
+rownames(freq_data) <- freq_data$word
+
+#wordcloud2(freq_data)
+ggwordcloud2(freq_data[, c("word", "freq")], size = 1.5)
+
+```
+
+
+#### Column {width="50%"}
+
+```{r}
+#| title: New method development paper
+#| echo: false
+#| label: "Evaluation - category freq - New method development paper"
+
+freq_data <- data %>%
+  filter(Paper.category == "New method development paper") %>%
+  select(finer_topic)
+
+colnames(freq_data) <- "word"
+
+freq_data <- as.data.frame(table(freq_data))
+colnames(freq_data) <- c("word", "freq")
+rownames(freq_data) <- data$word
+
+ggwordcloud2(freq_data[, c("word", "freq")], size = 1.5)
+    
+```

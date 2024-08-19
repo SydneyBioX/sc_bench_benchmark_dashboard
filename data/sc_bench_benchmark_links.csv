@@ -1,0 +1,246 @@
+Paper,Link
+A benchmark of batch-effect correction methods for single-cell RNA sequencing data,https://pubmed.ncbi.nlm.nih.gov/31948481/
+A benchmark study of deep learning-based multi-omics data fusion methods for cancer,https://pubmed.ncbi.nlm.nih.gov/35945544/
+A benchmark study of simulation methods for single-cell RNA sequencing data,https://ideas.repec.org/a/nat/natcom/v12y2021i1d10.1038_s41467-021-27130-w.html
+A Comparison for Dimensionality Reduction Methods of Single-Cell RNA-seq Data,https://pubmed.ncbi.nlm.nih.gov/33833778/
+A comparison framework and guideline of clustering methods for mass cytometry data,https://pubmed.ncbi.nlm.nih.gov/31870419/
+A comparison of automatic cell identification methods for single-cell RNA sequencing data,https://pubmed.ncbi.nlm.nih.gov/31500660/
+A comparison of methods accounting for batch effects in differential expression analysis of UMI count based single cell RNA sequencing,https://pubmed.ncbi.nlm.nih.gov/32322368/
+A comparison of single-cell trajectory inference methods,https://pubmed.ncbi.nlm.nih.gov/30936559/
+A comprehensive benchmarking with practical guidelines for cellular deconvolution of spatial transcriptomics,https://pubmed.ncbi.nlm.nih.gov/36941264/
+A comprehensive survey of regulatory network inference methods using single cell RNA sequencing data,https://pubmed.ncbi.nlm.nih.gov/34020546/
+A Framework for Comparison and Assessment of Synthetic RNA-Seq Data,https://pubmed.ncbi.nlm.nih.gov/36553629/
+A Hybrid Clustering Algorithm for Identifying Cell Types from Single-Cell RNA-Seq Data,https://pubmed.ncbi.nlm.nih.gov/30700040/
+A lineage tree-based hidden Markov model quantifies cellular heterogeneity and plasticity,https://pubmed.ncbi.nlm.nih.gov/36396800/
+A model-based constrained deep learning clustering approach for spatially resolved single-cell data,https://pubmed.ncbi.nlm.nih.gov/36198490/
+A multi-center cross-platform single-cell RNA sequencing reference dataset,https://pubmed.ncbi.nlm.nih.gov/33531477/
+A multicenter study benchmarking single-cell RNA sequencing technologies using reference samples,https://pubmed.ncbi.nlm.nih.gov/33349700/
+A multiresolution framework to characterize single-cell state landscapes,https://pubmed.ncbi.nlm.nih.gov/33106496/
+A novel method for single-cell data imputation using subspace regression,https://pubmed.ncbi.nlm.nih.gov/35177662/
+A Quantitative Framework for Evaluating Single-Cell Data Structure Preservation by Dimensionality Reduction Techniques,https://pubmed.ncbi.nlm.nih.gov/32375029/
+A rank-based marker selection method for high throughput scRNA-seq data,https://pubmed.ncbi.nlm.nih.gov/33097004/
+A review and performance evaluation of clustering frameworks for single-cell Hi-C data,https://pubmed.ncbi.nlm.nih.gov/36151714/
+A sparse differential clustering algorithm for tracing cell type changes via single-cell RNA-sequencing data,https://pubmed.ncbi.nlm.nih.gov/29140455/
+A spectral clustering with self-weighted multiple kernel learning method for single-cell RNA-seq data,https://pubmed.ncbi.nlm.nih.gov/33003206/
+A statistical simulator scDesign for rational scRNA-seq experimental design,https://pubmed.ncbi.nlm.nih.gov/31510652/
+A systematic evaluation of single cell RNA-seq analysis pipelines,https://pubmed.ncbi.nlm.nih.gov/31604912/
+A systematic evaluation of single-cell RNA-sequencing imputation methods,https://pubmed.ncbi.nlm.nih.gov/32854757/
+A Systematic Evaluation of Supervised Machine Learning Algorithms for Cell Phenotype Classification Using Single-Cell RNA Sequencing Data,https://pubmed.ncbi.nlm.nih.gov/35281805/
+A systematic evaluation of the computational tools for ligand-receptor-based cell-cell interaction inference,https://pubmed.ncbi.nlm.nih.gov/35822343/
+A systematic performance evaluation of clustering methods for single-cell RNA-seq data,https://pubmed.ncbi.nlm.nih.gov/30271584/
+A Variational Algorithm to Detect the Clonal Copy Number Substructure of Tumors from scRNA-seq Data,https://pubmed.ncbi.nlm.nih.gov/36841879/
+"Accuracy, robustness and scalability of dimensionality reduction methods for single-cell RNA-seq analysis",https://pubmed.ncbi.nlm.nih.gov/31823809/
+Advances in mixed cell deconvolution enable quantification of cell types in spatial transcriptomic data,https://pubmed.ncbi.nlm.nih.gov/35046414/
+Adversarial dense graph convolutional networks for single-cell classification,https://pubmed.ncbi.nlm.nih.gov/36661313/
+Adversarial domain translation networks for integrating large-scale atlas-level single-cell datasets,https://pubmed.ncbi.nlm.nih.gov/38177826/
+AIscEA: unsupervised integration of single-cell gene expression and chromatin accessibility via their biological consistency,https://pubmed.ncbi.nlm.nih.gov/36250795/
+Alignment and integration of spatial transcriptomics data,https://pubmed.ncbi.nlm.nih.gov/35577957/
+Are dropout imputation methods for scRNA-seq effective for scATAC-seq data?,https://pubmed.ncbi.nlm.nih.gov/34718405/
+Assessment of computational methods for the analysis of single-cell ATAC-seq data,https://pubmed.ncbi.nlm.nih.gov/31739806/
+Assessment of Single Cell RNA-Seq Normalization Methods,https://pubmed.ncbi.nlm.nih.gov/28468817/
+ASTER: accurately estimating the number of cell types in single-cell chromatin accessibility data,https://pubmed.ncbi.nlm.nih.gov/36610708/
+Autoencoder-based cluster ensembles for single-cell RNA-seq data analysis,https://pubmed.ncbi.nlm.nih.gov/31870278/
+Bayesian information sharing enhances detection of regulatory associations in rare cell types,https://pubmed.ncbi.nlm.nih.gov/34252956/
+BBKNN: fast batch alignment of single cell transcriptomes,https://pubmed.ncbi.nlm.nih.gov/31400197/
+Benchmark and Parameter Sensitivity Analysis of Single-Cell RNA Sequencing Clustering Methods,https://pubmed.ncbi.nlm.nih.gov/31921297/
+Benchmarking algorithms for gene regulatory network inference from single-cell transcriptomic data,https://pubmed.ncbi.nlm.nih.gov/31907445/
+Benchmarking algorithms for pathway activity transformation of single-cell RNA-seq data,https://pubmed.ncbi.nlm.nih.gov/33209207/
+Benchmarking and integration of methods for deconvoluting spatial transcriptomic data,https://pubmed.ncbi.nlm.nih.gov/36515467/
+Benchmarking atlas-level data integration in single-cell genomics,https://pubmed.ncbi.nlm.nih.gov/34949812/
+Benchmarking automated cell type annotation tools for single-cell ATAC-seq data,https://pubmed.ncbi.nlm.nih.gov/36583014/
+Benchmarking cell-type clustering methods for spatially resolved transcriptomics data,https://pubmed.ncbi.nlm.nih.gov/36410733/
+Benchmarking clustering algorithms on estimating the number of cell types from single-cell RNA-sequencing data,https://pubmed.ncbi.nlm.nih.gov/35135612/
+Benchmarking computational doublet-detection methods for single-cell RNA sequencing data,https://pubmed.ncbi.nlm.nih.gov/33338399/
+Benchmarking computational methods for B-cell receptor reconstruction from single-cell RNA-seq data,https://pubmed.ncbi.nlm.nih.gov/35855325/
+Benchmarking integration of single-cell differential expression,https://pubmed.ncbi.nlm.nih.gov/36944632/
+Benchmarking joint multi-omics dimensionality reduction approaches for the study of cancer,https://pubmed.ncbi.nlm.nih.gov/33402734/
+Benchmarking methods for detecting differential states between conditions from multi-subject single-cell RNA-seq data,https://pubmed.ncbi.nlm.nih.gov/35880426/
+Benchmarking of a Bayesian single cell RNAseq differential gene expression test for dose–response study designs,https://pubmed.ncbi.nlm.nih.gov/35061903/
+Benchmarking of cell type deconvolution pipelines for transcriptomics data,https://pubmed.ncbi.nlm.nih.gov/33159064/
+Benchmarking principal component analysis for large-scale single-cell RNA-sequencing,https://pubmed.ncbi.nlm.nih.gov/31955711/
+Benchmarking single cell RNA-sequencing analysis pipelines using mixture control experiments,https://pubmed.ncbi.nlm.nih.gov/31133762/
+Benchmarking spatial and single-cell transcriptomics integration methods,https://pubmed.ncbi.nlm.nih.gov/35577955/
+Benchmarking spatial and single-cell transcriptomics integration methods for transcript distribution prediction and cell type deconvolution,https://pubmed.ncbi.nlm.nih.gov/35577954/
+Benchmarking UMI-based single-cell RNA-seq preprocessing workflows,https://pubmed.ncbi.nlm.nih.gov/34906205/
+"Bias, robustness and scalability in single-cell differential expression analysis",https://pubmed.ncbi.nlm.nih.gov/29481549/
+Built on sand: the shaky foundations of simulating single-cell RNA sequencing data,https://pubmed.ncbi.nlm.nih.gov/36991470/
+Cell segmentation in imaging-based spatial transcriptomics,https://pubmed.ncbi.nlm.nih.gov/34650268/
+CellFishing.jl: an ultrafast and scalable cell search method for single-cell RNA sequencing,https://pubmed.ncbi.nlm.nih.gov/30744683/
+CellMixS: quantifying and visualizing batch effects in single-cell RNA-seq data,https://pubmed.ncbi.nlm.nih.gov/33758076/
+Cellpose: a generalist algorithm for cellular segmentation,https://pubmed.ncbi.nlm.nih.gov/33318659/
+CellSIUS provides sensitive and specific detection of rare cell populations from complex single-cell RNA-seq data,https://pubmed.ncbi.nlm.nih.gov/31315641/
+"CHETAH: a selective, hierarchical cell type identification method for single-cell RNA sequencing",https://pubmed.ncbi.nlm.nih.gov/31226206/
+Choice of pre-processing pipeline influences clustering quality of scRNA-seq datasets,https://pubmed.ncbi.nlm.nih.gov/34521337/
+ChrNet: A re-trainable chromosome-based 1D convolutional neural network for predicting immune cell types,https://pubmed.ncbi.nlm.nih.gov/33932523/
+CIDR: Ultrafast and accurate clustering through imputation for single-cell RNA-seq data,https://pubmed.ncbi.nlm.nih.gov/28351406/
+Clustering methods for single-cell RNA-sequencing expression data: performance evaluation with varying sample sizes and cell compositions,https://pubmed.ncbi.nlm.nih.gov/31646845/
+ClusterMap for multi-scale clustering analysis of spatial gene expression,https://pubmed.ncbi.nlm.nih.gov/34625546/
+Comparative analysis of common alignment tools for single-cell RNA sequencing,https://pubmed.ncbi.nlm.nih.gov/35084033/
+Comparative analysis of differential gene expression analysis tools for single-cell RNA sequencing data,https://pubmed.ncbi.nlm.nih.gov/30658573/
+Comparison of clustering tools in R for medium-sized 10x Genomics single-cell RNA-sequencing data,https://pubmed.ncbi.nlm.nih.gov/30228881/
+Comparison of Computational Methods for Imputing Single-Cell RNA-Sequencing Data,https://pubmed.ncbi.nlm.nih.gov/29994128/
+Comparison of high-throughput single-cell RNA sequencing data processing pipelines,https://pubmed.ncbi.nlm.nih.gov/34020539/
+Comparison of methods to detect differentially expressed genes between single-cell populations,https://pubmed.ncbi.nlm.nih.gov/27373736/
+Comparison of visualization tools for single-cell RNAseq data,https://pubmed.ncbi.nlm.nih.gov/32766548/
+Comprehensive evaluation of deconvolution methods for human brain gene expression,https://pubmed.ncbi.nlm.nih.gov/35292647/
+Comprehensive evaluation of noise reduction methods for single-cell RNA sequencing data,https://pubmed.ncbi.nlm.nih.gov/35048125/
+Comprehensive evaluation of transcriptome-based cell-type quantification methods for immuno-oncology,https://pubmed.ncbi.nlm.nih.gov/31510660/
+Cross-species cell-type assignment from single-cell RNA-seq data by a heterogeneous graph neural network,https://pubmed.ncbi.nlm.nih.gov/36526433/
+Cumulus provides cloud-based data analysis for large-scale single-cell and single-nucleus RNA-seq,https://pubmed.ncbi.nlm.nih.gov/32719530/
+De novo gene signature identification from single-cell RNA-seq with hierarchical Poisson factorization,https://pubmed.ncbi.nlm.nih.gov/30796088/
+Deconvolution analysis of cell-type expression from bulk tissues by integrating with single-cell expression reference,https://pubmed.ncbi.nlm.nih.gov/35788983/
+DEEPsc: A Deep Learning-Based Map Connecting Single-Cell Transcriptomics and Spatial Imaging Data,https://pubmed.ncbi.nlm.nih.gov/33833776/
+DeepST: identifying spatial domains in spatial transcriptomics by deep learning,https://pubmed.ncbi.nlm.nih.gov/36250636/
+DeepVelo: Single-cell transcriptomic deep velocity field learning with neural ordinary differential equations,https://pubmed.ncbi.nlm.nih.gov/36449617/
+Delineating Copy Number and Clonal Substructure in Human Tumors from Single-cell Transcriptomes,https://pubmed.ncbi.nlm.nih.gov/33462507/
+DENDRO: genetic heterogeneity profiling and subclone detection by single-cell RNA sequencing,https://pubmed.ncbi.nlm.nih.gov/31937348/
+Density-based detection of cell transition states to construct disparate and bifurcating trajectories,https://pubmed.ncbi.nlm.nih.gov/36124665/
+Destin2: Integrative and cross-modality analysis of single-cell chromatin accessibility data,https://pubmed.ncbi.nlm.nih.gov/36873935/
+Detecting critical transition signals from single-cell transcriptomes to infer lineage-determining transcription factors,https://pubmed.ncbi.nlm.nih.gov/35640613/
+Differential abundance testing on single-cell data using k-nearest neighbor graphs,https://pubmed.ncbi.nlm.nih.gov/34594043/
+Differential expression of single-cell RNA-seq data using Tweedie models,https://pubmed.ncbi.nlm.nih.gov/35656596/
+Dimensionality reduction for visualizing single-cell data using UMAP,https://pubmed.ncbi.nlm.nih.gov/30531897/
+DIRECT-NET: An efficient method to discover cis-regulatory elements and construct regulatory networks from single-cell multiomics data,https://pubmed.ncbi.nlm.nih.gov/35648859/
+Discovery of rare cells from voluminous single cell expression data,https://pubmed.ncbi.nlm.nih.gov/30413715/
+Dissecting cell identity via network inference and in silico gene perturbation,https://pubmed.ncbi.nlm.nih.gov/36755098/
+Doublet identification in single-cell sequencing data using scDblFinder,https://pubmed.ncbi.nlm.nih.gov/35814628/
+DrivAER: Identification of driving transcriptional programs in single-cell RNA sequencing data,https://pubmed.ncbi.nlm.nih.gov/33301553/
+EDClust: an EM-MM hybrid method for cell clustering in multiple-subject single-cell RNA sequencing,https://pubmed.ncbi.nlm.nih.gov/35561178/
+Efficient prediction of a spatial transcriptomics profile better characterizes breast cancer tissue sections without costly experimentation,https://pubmed.ncbi.nlm.nih.gov/35260632/
+EmptyNN: A neural network based on positive and unlabeled learning to remove cell-free droplets and recover lost cells in scRNA-seq data,https://pubmed.ncbi.nlm.nih.gov/34430929/
+EpiScanpy: integrated single-cell epigenomic analysis,https://pubmed.ncbi.nlm.nih.gov/34471111/
+ESCO: single cell expression simulation incorporating gene co-expression,https://pubmed.ncbi.nlm.nih.gov/33624750/
+Evaluating measures of association for single-cell transcriptomics,https://pubmed.ncbi.nlm.nih.gov/30962620/
+Evaluating methods of inferring gene regulatory networks highlights their lack of performance for single cell gene expression data,https://pubmed.ncbi.nlm.nih.gov/29914350/
+Evaluating the reproducibility of single-cell gene regulatory network inference algorithms,https://pubmed.ncbi.nlm.nih.gov/33828580/
+Evaluation of Cell Type Annotation R Packages on Single-cell RNA-seq Data,https://pubmed.ncbi.nlm.nih.gov/33359678/
+Evaluation of cell-cell interaction methods by integrating single-cell RNA sequencing data with spatial information,https://pubmed.ncbi.nlm.nih.gov/36253792/
+Evaluation of machine learning approaches for cell-type identification from single-cell transcriptomics data,https://pubmed.ncbi.nlm.nih.gov/33611343/
+Evaluation of methods to assign cell type labels to cell clusters from single-cell RNA-sequencing data,https://pubmed.ncbi.nlm.nih.gov/31508207/
+Evaluation of single-cell classifiers for single-cell RNA sequencing data sets,https://pubmed.ncbi.nlm.nih.gov/31675098/
+"Evaluation of some aspects in supervised cell type identification for single-cell RNA-seq: classifier, feature selection, and reference construction",https://pubmed.ncbi.nlm.nih.gov/34503564/
+Evaluation of STAR and Kallisto on Single Cell RNA-Seq Data Alignment,https://pubmed.ncbi.nlm.nih.gov/32220951/
+Evaluation of tools for highly variable gene discovery from single-cell RNA-seq data,https://pubmed.ncbi.nlm.nih.gov/29481632/
+False signals induced by single-cell imputation,https://pubmed.ncbi.nlm.nih.gov/30906525/
+"Fast, sensitive and accurate integration of single-cell data with Harmony",https://pubmed.ncbi.nlm.nih.gov/31740819/
+Flexible comparison of batch correction methods for single-cell RNA-seq using BatchBench,https://pubmed.ncbi.nlm.nih.gov/33524142/
+Functional inference of gene regulation using single-cell multi-omics,https://pubmed.ncbi.nlm.nih.gov/36204155/
+GapClust is a light-weight approach distinguishing rare cells from voluminous single cell expression profiles,https://pubmed.ncbi.nlm.nih.gov/34234139/
+Generalizable and Scalable Visualization of Single-Cell Data Using Neural Networks,https://pubmed.ncbi.nlm.nih.gov/29936184/
+Giotto: a toolbox for integrative analysis and visualization of spatial expression data,https://pubmed.ncbi.nlm.nih.gov/33685491/
+HGC: fast hierarchical clustering for large-scale single-cell data,https://pubmed.ncbi.nlm.nih.gov/34096998/
+High-throughput single-cell RNA-seq data imputation and characterization with surrogate-assisted automated deep learning,https://pubmed.ncbi.nlm.nih.gov/34553763/
+histocat: analysis of cell phenotypes and interactions in multiplex image cytometry data,https://pubmed.ncbi.nlm.nih.gov/28783155/
+How does the structure of data impact cell-cell similarity? Evaluating how structural properties influence the performance of proximity metrics in single cell RNA-seq data,https://pubmed.ncbi.nlm.nih.gov/36151725/
+IBRAP: integrated benchmarking single-cell RNA-sequencing analytical pipeline,https://pubmed.ncbi.nlm.nih.gov/36847692/
+Identifying gene expression programs of cell-type identity and cellular activity with single-cell RNA-Seq,https://pubmed.ncbi.nlm.nih.gov/31282856/
+Identifying phenotype-associated subpopulations by integrating bulk and single-cell sequencing data,https://pubmed.ncbi.nlm.nih.gov/34764492/
+Identifying strengths and weaknesses of methods for computational network inference from single-cell RNA-seq data,https://pubmed.ncbi.nlm.nih.gov/36626328/
+Impact of similarity metrics on single-cell RNA-seq data clustering,https://pubmed.ncbi.nlm.nih.gov/30137247/
+Influence of Cell-type Ratio on Spatially Resolved Single-cell Transcriptomes using the Tangram Algorithm: Based on Implementation on Single-Cell and MxIF Data,https://pubmed.ncbi.nlm.nih.gov/37324550/
+Integrating multiple references for single-cell assignment,https://pubmed.ncbi.nlm.nih.gov/34037791/
+Integrating temporal single-cell gene expression modalities for trajectory inference and disease prediction,https://pubmed.ncbi.nlm.nih.gov/36064614/
+Integration of single cell data by disentangled representation learning,https://pubmed.ncbi.nlm.nih.gov/34850092/
+Interactive analysis of single-cell epigenomic landscapes with ChromSCape,https://pubmed.ncbi.nlm.nih.gov/33177523/
+IReNA: Integrated regulatory network analysis of single-cell transcriptomes and chromatin accessibility profiles,https://pubmed.ncbi.nlm.nih.gov/36325073/
+iSMNN: batch effect correction for single-cell RNA-seq data via iterative supervised mutual nearest neighbor refinement,https://pubmed.ncbi.nlm.nih.gov/33839756/
+Joint cell segmentation and cell type annotation for spatial transcriptomics,https://pubmed.ncbi.nlm.nih.gov/34057817/
+Joint dimension reduction and clustering analysis of single-cell RNA-seq and spatial transcriptomics data,https://pubmed.ncbi.nlm.nih.gov/35349708/
+Latent cellular analysis robustly reveals subtle diversity in large-scale single-cell RNA-seq data,https://pubmed.ncbi.nlm.nih.gov/31566233/
+Learning Cell Annotation under Multiple Reference Datasets by Multisource Domain Adaptation,https://pubmed.ncbi.nlm.nih.gov/36579851/
+Learning for single-cell assignment,https://pubmed.ncbi.nlm.nih.gov/33127686/
+Mapping molecular assemblies with fluorescence microscopy and object-based spatial statistics,https://pubmed.ncbi.nlm.nih.gov/29449608/
+maxATAC: Genome-scale transcription-factor binding prediction from ATAC-seq with deep neural networks,https://pubmed.ncbi.nlm.nih.gov/36719906/
+Multi-omics single-cell data integration and regulatory inference with graph-linked embedding,https://pubmed.ncbi.nlm.nih.gov/35501393/
+NetREX-CF integrates incomplete transcription factor data with gene expression to reconstruct gene regulatory networks,https://pubmed.ncbi.nlm.nih.gov/36418514/
+Network embedding-based representation learning for single cell RNA-seq data,https://pubmed.ncbi.nlm.nih.gov/28977434/
+NISC: Neural Network-Imputation for Single-Cell RNA Sequencing and Cell Type Clustering,https://pubmed.ncbi.nlm.nih.gov/35591853/
+"Nonparametric single-cell multiomic characterization of trio relationships between transcription factors, target genes, and cis-regulatory regions",https://pubmed.ncbi.nlm.nih.gov/36055233/
+Normalization and de-noising of single-cell Hi-C data with BandNorm and scVI-3D,https://pubmed.ncbi.nlm.nih.gov/36253828/
+Normalization Methods on Single-Cell RNA-seq Data: An Empirical Survey,https://pubmed.ncbi.nlm.nih.gov/32117453/
+Novel ChIP-seq simulating program with superior versatility: isChIP,https://pubmed.ncbi.nlm.nih.gov/33320934/
+Optimal transport improves cell-cell similarity inference in single-cell omics data,https://pubmed.ncbi.nlm.nih.gov/35157031/
+PAGA: graph abstraction reconciles clustering with trajectory inference through a topology preserving map of single cells,https://pubmed.ncbi.nlm.nih.gov/30890159/
+Parameter tuning is a key part of dimensionality reduction via deep variational autoencoders for single cell RNA transcriptomics,https://pubmed.ncbi.nlm.nih.gov/30963075/
+Performance Assessment and Selection of Normalization Procedures for Single-Cell RNA-Seq,https://pubmed.ncbi.nlm.nih.gov/31022373/
+Performance assessment of sample-specific network control methods for bulk and single-cell biological data analysis,https://pubmed.ncbi.nlm.nih.gov/33956788/
+Perspectives for the reconstruction of 3D chromatin conformation using single cell Hi-C data,https://pubmed.ncbi.nlm.nih.gov/34793453/
+"Pheniqs 20: accurate, high-performance Bayesian decoding and confidence estimation for combinatorial barcode indexing",https://pubmed.ncbi.nlm.nih.gov/34215187/
+"pipeComp, a general framework for the evaluation of computational pipelines, reveals performant single cell RNA-seq preprocessing tools",https://pubmed.ncbi.nlm.nih.gov/32873325/
+powsimR: power analysis for bulk and single cell RNA-seq experiments,https://pubmed.ncbi.nlm.nih.gov/29036287/
+Predicting cell lineages using autoencoders and optimal transport,https://pubmed.ncbi.nlm.nih.gov/32343706/
+Predicting recognition between T cell receptors and epitopes with TCRGP,https://pubmed.ncbi.nlm.nih.gov/33764977/
+Preprocessing choices affect RNA velocity results for droplet scRNA-seq data,https://pubmed.ncbi.nlm.nih.gov/33428615/
+PseudoGA: cell pseudotime reconstruction based on genetic algorithm,https://pubmed.ncbi.nlm.nih.gov/34244782/
+psupertime: supervised pseudotime analysis for time-series single-cell RNA-seq data,https://pubmed.ncbi.nlm.nih.gov/35758781/
+Quantifying Waddington’s epigenetic landscape: a comparison of single-cell potency measures,https://pubmed.ncbi.nlm.nih.gov/30289442/
+Realistic in silico generation and augmentation of single-cell RNA-seq data using generative adversarial networks,https://pubmed.ncbi.nlm.nih.gov/31919373/
+Recommendations of scRNA-seq Differential Gene Expression Analysis Based on Comprehensive Benchmarking,https://pubmed.ncbi.nlm.nih.gov/35743881/
+Region-specific denoising identifies spatial co-expression patterns and intra-tissue heterogeneity in spatially resolved transcriptomics data,https://pubmed.ncbi.nlm.nih.gov/36376296/
+Regulatory analysis of single cell multiome gene expression and chromatin accessibility data with scREG,https://pubmed.ncbi.nlm.nih.gov/35578363/
+Reproducibility of Methods to Detect Differentially Expressed Genes from Single-Cell RNA Sequencing,https://pubmed.ncbi.nlm.nih.gov/32010190/
+Resolving single-cell copy number profiling for large datasets,https://pubmed.ncbi.nlm.nih.gov/35801503/
+Robustness and applicability of transcription factor and pathway analysis tools on single-cell RNA-seq data,https://pubmed.ncbi.nlm.nih.gov/32051003/
+sc3: consensus clustering of single-cell rna-seq data,https://pubmed.ncbi.nlm.nih.gov/28346451/
+scAB detects multiresolution cell states with clinical significance by integrating single-cell genomics and bulk sequencing data,https://pubmed.ncbi.nlm.nih.gov/36440766/
+SCAN-ATAC-Sim: a scalable and efficient method for simulating single-cell ATAC-seq data from bulk-tissue experiments,https://pubmed.ncbi.nlm.nih.gov/33471102/
+scCATCH: Automatic Annotation on Cell Types of Clusters from Single-Cell RNA Sequencing Data,https://pubmed.ncbi.nlm.nih.gov/32062421/
+scClassify: sample size estimation and multiscale classification of cells using single and multiple reference,https://pubmed.ncbi.nlm.nih.gov/32567229/
+scDesign2: a transparent simulator that generates high-fidelity single-cell gene expression count data with gene correlations captured,https://pubmed.ncbi.nlm.nih.gov/34034771/
+scESI: evolutionary sparse imputation for single-cell transcriptomes from nearest neighbor cells,https://pubmed.ncbi.nlm.nih.gov/35512331/
+scGAD: a new task and end-to-end framework for generalized cell type annotation and discovery,https://pubmed.ncbi.nlm.nih.gov/36869836/
+scGCN is a graph convolutional networks algorithm for knowledge transfer in single cell omics,https://pubmed.ncbi.nlm.nih.gov/34158507/
+scGNN is a novel graph neural network framework for single-cell RNA-Seq analyses,https://pubmed.ncbi.nlm.nih.gov/33767197/
+scHinter: imputing dropout events for single-cell RNA-seq data with limited sample size,https://pubmed.ncbi.nlm.nih.gov/31392316/
+scIMC: a platform for benchmarking comparison and visualization analysis of scRNA-seq data imputation methods,https://pubmed.ncbi.nlm.nih.gov/35524568/
+scJoint integrates atlas-scale single-cell RNA-seq and ATAC-seq data with transfer learning,https://pubmed.ncbi.nlm.nih.gov/35058621/
+scMAGIC: accurately annotating single cells using two rounds of reference-based classification,https://pubmed.ncbi.nlm.nih.gov/34986249/
+"scMerge leverages factor analysis, stable expression, and pseudoreplication to merge multiple single-cell RNA-seq datasets",https://pubmed.ncbi.nlm.nih.gov/31028141/
+scMINER: a mutual information-based framework for identifying hidden drivers from single-cell omics data,https://pubmed.ncbi.nlm.nih.gov/36747874/
+scNPF: an integrative framework assisted by network propagation and network fusion for preprocessing of single-cell RNA-seq data,https://pubmed.ncbi.nlm.nih.gov/31068142/
+scPred: accurate supervised method for cell-type classification from single-cell RNA-seq data,https://pubmed.ncbi.nlm.nih.gov/31829268/
+scShaper: an ensemble method for fast and accurate linear trajectory inference from single-cell RNA-seq data,https://pubmed.ncbi.nlm.nih.gov/34888622/
+SCSsim: an integrated tool for simulating single-cell genome sequencing data,https://pubmed.ncbi.nlm.nih.gov/31584615/
+SD2: spatially resolved transcriptomics deconvolution through integration of dropout and spatial information,https://pubmed.ncbi.nlm.nih.gov/36063455/
+"Secuer: Ultrafast, scalable and accurate clustering of single-cell RNA-seq data",https://pubmed.ncbi.nlm.nih.gov/36469543/
+Signature-scoring methods developed for bulk samples are not adequate for cancer single-cell RNA sequencing data,https://pubmed.ncbi.nlm.nih.gov/35212622/
+simATAC: a single-cell ATAC-seq simulation framework,https://pubmed.ncbi.nlm.nih.gov/33663563/
+SimCH: simulation of single-cell RNA sequencing data by modeling cellular heterogeneity at gene expression level,https://pubmed.ncbi.nlm.nih.gov/36575569/
+Simulation-based benchmarking of isoform quantification in single-cell RNA-seq,https://pubmed.ncbi.nlm.nih.gov/30404663/
+"Simulation, power evaluation and sample size recommendation for single-cell RNA-seq",https://pubmed.ncbi.nlm.nih.gov/32614380/
+SINFONIA: Scalable Identification of Spatially Variable Genes for Deciphering Spatial Domains,https://pubmed.ncbi.nlm.nih.gov/36831270/
+Single-cell biological network inference using a heterogeneous graph transformer,https://pubmed.ncbi.nlm.nih.gov/36810839/
+Single-cell gene regulatory network prediction by explainable AI,https://pubmed.ncbi.nlm.nih.gov/36629274/
+Single-cell multi-omics integration for unpaired data by a siamese network with graph-based contrastive loss,https://pubmed.ncbi.nlm.nih.gov/36600199/
+Single-Cell RNA Sequencing Data Interpretation by Evolutionary Multiobjective Clustering,https://pubmed.ncbi.nlm.nih.gov/30908236/
+Single-cell RNA-sequencing: assessment of differential expression analysis methods,https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2017.00062/full
+SnapHiC: a computational pipeline to identify chromatin loops from single-cell Hi-C data,https://pubmed.ncbi.nlm.nih.gov/34446921/
+SOMDE: a scalable method for identifying spatially variable genes with self-organizing map,https://pubmed.ncbi.nlm.nih.gov/34165490/
+"SpaGCN: Integrating gene expression, spatial location and histology to identify spatial domains and spatially variable genes by graph convolutional network",https://pubmed.ncbi.nlm.nih.gov/34711970/
+SpaGE: Spatial Gene Enhancement using scRNA-seq,https://pubmed.ncbi.nlm.nih.gov/32955565/
+SPARK-X: non-parametric modeling enables scalable and robust detection of spatial expression patterns for large spatial transcriptomic studies,https://pubmed.ncbi.nlm.nih.gov/34154649/
+Spatial transcriptomics at subspot resolution with BayesSpace,https://pubmed.ncbi.nlm.nih.gov/34083791/
+Spatial-ID: a cell typing method for spatially resolved transcriptomics via transfer learning and spatial embedding,https://pubmed.ncbi.nlm.nih.gov/36496406/
+SpatialDE: identification of spatially variable genes,https://pubmed.ncbi.nlm.nih.gov/29553579/
+SpatialDWLS: accurate deconvolution of spatial transcriptomic data,https://pubmed.ncbi.nlm.nih.gov/33971932/
+"Spatially informed clustering, integration, and deconvolution of spatial transcriptomics with GraphST",https://pubmed.ncbi.nlm.nih.gov/36859400/
+"Spearheading future omics analyses using dyngen, a multi-modal simulator of single cells",https://pubmed.ncbi.nlm.nih.gov/34168133/
+spicyR: spatial analysis of in situ cytometry data in R,https://pubmed.ncbi.nlm.nih.gov/35438129/
+splatPop: simulating population scale single-cell RNA sequencing data,https://pubmed.ncbi.nlm.nih.gov/34911537/
+SRGS: sparse partial least squares-based recursive gene selection for gene regulatory network inference,https://pubmed.ncbi.nlm.nih.gov/36451086/
+Supervised application of internal validation measures to benchmark dimensionality reduction methods in scRNA-seq data,https://pubmed.ncbi.nlm.nih.gov/34374742/
+Supervised classification enables rapid annotation of cell atlases,https://pubmed.ncbi.nlm.nih.gov/31501545/
+Systematic comparative analysis of single-nucleotide variant detection methods from single-cell RNA sequencing data,https://pubmed.ncbi.nlm.nih.gov/31744515/
+Systematic evaluation of transcriptomics-based deconvolution methods and references using thousands of clinical samples,https://pubmed.ncbi.nlm.nih.gov/34346485/
+The Current State of Single-Cell Proteomics Data Analysis,https://pubmed.ncbi.nlm.nih.gov/36633424/
+TISCH: a comprehensive web resource enabling interactive single-cell transcriptome visualization of tumor microenvironment,https://pubmed.ncbi.nlm.nih.gov/33179754/
+TIST: Transcriptome and Histopathological Image Integrative Analysis for Spatial Transcriptomics,https://pubmed.ncbi.nlm.nih.gov/36549467/
+Towards a comprehensive evaluation of dimension reduction methods for transcriptomic data visualization,https://pubmed.ncbi.nlm.nih.gov/35853932/
+Transcriptome analysis method based on differential distribution evaluation,https://pubmed.ncbi.nlm.nih.gov/35151228/
+Triku: a feature selection method based on nearest neighbors for single-cell data,https://pubmed.ncbi.nlm.nih.gov/35277963/
+Tuning parameters of dimensionality reduction methods for single-cell RNA-seq analysis,https://pubmed.ncbi.nlm.nih.gov/32831127/
+Ultra-fast scalable estimation of single-cell differentiation potency from scRNA-Seq data,https://pubmed.ncbi.nlm.nih.gov/33244588/
+Uncovering cell identity through differential stability with Cepo,https://pubmed.ncbi.nlm.nih.gov/38217190/
+Using single-cell cytometry to illustrate integrated multi-perspective evaluation of clustering algorithms using Pareto fronts,https://pubmed.ncbi.nlm.nih.gov/33508103/
+Vaeda computationally annotates doublets in single-cell RNA sequencing data,https://pubmed.ncbi.nlm.nih.gov/36342203/
+Visualization and analysis of single-cell RNA-seq data by kernel-based similarity learning,https://pubmed.ncbi.nlm.nih.gov/28263960/

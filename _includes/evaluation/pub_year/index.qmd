@@ -1,0 +1,24 @@
+#### Column {width="50%"}
+
+```{r}
+#| title: Pure Benchmark
+#| echo: false
+#| label: "Evaluation - Pub year - Pure benchmark"
+
+pub_data <- data |> filter(Paper.category == "Pure benchmarking paper")
+publication_plot(pub_data)
+
+```
+
+
+#### Column {width="50%"}
+
+```{r}
+#| title: New method development paper
+#| echo: false
+#| label: "Evaluation - Pub year - New method development paper"
+
+pub_data <- data |> filter(Paper.category == "New method development paper")
+publication_plot(pub_data)
+    
+```

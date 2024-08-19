@@ -1,13 +1,21 @@
 project:
   type: website
   output-dir: docs
+  preview:
+    port: 4000
 
 website:
   title: "sc_bench_benchmark_dashboard"
+  description: "The current landscape and emerging challenges of benchmarking single-cell methods"
+  favicon: https://www.sydney.edu.au/etc.clientlibs/corporate-commons/clientlibs/foundation/resources/corporate-frontend/assets/img/favicon/favicon-16x16.png
+  site-url: https://sydneybiox.github.io/sc_bench_benchmark_dashboard/
+  repo-url: https://github.com/SydneyBioX/sc_bench_benchmark_dashboard
   sidebar:
     content:
       - href: index.qmd
         text: Papers
+  page-footer:
+    right: "&copy Sydney Precision Data Science Centre 2024"
 
 format:
   html:

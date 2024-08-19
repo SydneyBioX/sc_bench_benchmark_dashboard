@@ -1,0 +1,15 @@
+<!-- {{< include ../includes/papers/read_data/index.qmd >}} -->
+
+
+### Row {.tabset}
+
+#### Category
+
+{{< include ./_includes/papers/categories/function.qmd >}}
+
+{{< include ./_includes/papers/categories/index.qmd >}}
+
+
+#### Survey Analysis
+
+{{< include ./_includes/papers/survey_analysis/index.qmd >}}

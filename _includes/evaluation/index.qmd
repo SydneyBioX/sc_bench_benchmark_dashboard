@@ -1,0 +1,21 @@
+## Row {.tabset}
+
+### Journal
+
+{{< include ./_includes/evaluation/journal/index.qmd >}}
+
+### Publication Year
+
+{{< include ./_includes/evaluation/pub_year/index.qmd >}}
+
+### Category Frequency
+
+{{< include ./_includes/evaluation/cat_freq/index.qmd >}}
+
+### Statistics
+
+
+```{r}
+#| title: List of statistics
+```
+Statistics
