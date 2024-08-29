@@ -377,18 +377,6 @@
       ],
       "Hash": "411ca2c03b1ce5f548345d2fc2685f7a"
     },
-    "d3r": {
-      "Package": "d3r",
-      "Version": "1.1.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "dplyr",
-        "htmltools",
-        "tidyr"
-      ],
-      "Hash": "ca8c241358352f9fa174b4c7e0390098"
-    },
     "data.table": {
       "Package": "data.table",
       "Version": "1.15.4",
@@ -866,29 +854,6 @@
       ],
       "Hash": "99df65cfef20e525ed38c3d2577f7190"
     },
-    "igraph": {
-      "Package": "igraph",
-      "Version": "2.0.3",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "Matrix",
-        "R",
-        "cli",
-        "cpp11",
-        "grDevices",
-        "graphics",
-        "lifecycle",
-        "magrittr",
-        "methods",
-        "pkgconfig",
-        "rlang",
-        "stats",
-        "utils",
-        "vctrs"
-      ],
-      "Hash": "c3b7d801d722e26e4cd888e042bf9af5"
-    },
     "isoband": {
       "Package": "isoband",
       "Version": "0.2.7",
@@ -1108,19 +1073,6 @@
         "methods"
       ],
       "Hash": "4fd8900853b746af55b81fda99da7695"
-    },
-    "networkD3": {
-      "Package": "networkD3",
-      "Version": "0.4",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "htmlwidgets",
-        "igraph",
-        "magrittr"
-      ],
-      "Hash": "38310ec4ddb1398359abdd603c151067"
     },
     "nlme": {
       "Package": "nlme",
@@ -1610,19 +1562,6 @@
         "vctrs"
       ],
       "Hash": "960e2ae9e09656611e0b8214ad543207"
-    },
-    "sunburstR": {
-      "Package": "sunburstR",
-      "Version": "2.1.8",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "d3r",
-        "dplyr",
-        "htmltools",
-        "htmlwidgets"
-      ],
-      "Hash": "eb5135a7590893f5757711090ea2b0ea"
     },
     "sys": {
       "Package": "sys",
