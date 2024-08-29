@@ -6,7 +6,7 @@ format:
     logo: "https://www.sydney.edu.au/etc.clientlibs/corporate-commons/clientlibs/foundation/resources/corporate-frontend/assets/img/favicon/favicon-16x16.png"
     theme: 
       - slate
-      - custom.scss
+      - style.scss
     nav-buttons: [github, twitter]
 
 ---
