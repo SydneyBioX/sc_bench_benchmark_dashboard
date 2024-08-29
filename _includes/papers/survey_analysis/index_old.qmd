@@ -1,0 +1,319 @@
+<!-- Paper - Survey Analysis -->
+
+
+```{ojs}
+//| echo: false
+//| include: false
+
+d3 = require("d3@7")
+topojson = require("topojson")
+
+```
+
+```{ojs}
+//| echo: false
+//| include: false
+
+console.log('paper_data:', paper_data); 
+console.log('Type of paper_data:', typeof paper_data);
+console.log('Is paper_data an array?', Array.isArray(paper_data));
+
+/*dataArray = Object.entries(paper_data).map(([key, value]) => ({ 
+Category: key,
+  ...value 
+  })); */
+  
+/*headers = paper_data.split('\n')[0].split(',');
+
+console.log("Headers", headers)
+
+rows = paper_data.split('\n').slice(1,-1).map(row=>row.split(','));
+console.log("Rows", rows)
+
+csvObject = rows.map(row => {
+  let myObject = {};
+  
+  headers.forEach((elem, index)=>{    
+  
+     myObject[elem] = row[index];
+  });
+  
+
+  return myObject;
+});
+
+console.log('csvObject:', csvObject);*/
+
+//console.log('paper_link:', paper_links);
+//console.log('Type of paper_link:', typeof paper_links);
+//console.log('Is paper_link an array?', Array.isArray(paper_links)); -
+
+/*dataLinkArray = Object.entries(paper_links).map(([key, value]) => ({ 
+Category: key,
+ ...value 
+})); */
+
+//console.log('data_link_array:', dataLinkArray); 
+
+```
+
+```{ojs}
+//| echo: false
+//| include: false
+
+
+/*function getColsByCol(colToFilter, col, selectedCol) {
+  
+  const indices = col.map((c, index) => c === selectedCol ? index : -1).filter(index => index !== -1);
+  
+  return indices.map(index => colToFilter[index]);
+}*/
+
+//indices = getColsByCol(paper_data.data_type, paper_data.Paper_category, "Pure benchmark paper") 
+
+first_indices = paper_data.Paper_category.map((c, index) => c === "New method development paper" ? index : -1).filter(index => index !== -1);
+
+selected_paper_category = "New method development paper"
+
+console.log("First indices", first_indices)
+
+first_filtered_data = paper_data.filter(function(p) {
+  return category.includes(p.paper_category)
+
+console.log("First indices length", first_filtered_data.length) 
+console.log("First indices", first_filtered_data)
+
+
+secondFilter = first_indices.map(index => paper_data.data_type[index])
+
+console.log("Second filter", secondFilter)
+
+selected_data_type = ["Single-cell Hi-C", "Single-cell mass cytometry"]
+
+second_filtered_data = first_filtered_data.filter(function(p) {
+  return selected_data_type.includes(p.data_type)
+
+console.log("Second indices length", second_filtered_data.length)
+console.log("Second indices", second_filtered_data)
+
+/*viewof data_type = Inputs.checkbox(
+  [...new Set(paper_data.data_type)], 
+  {
+    value:  [...new Set(paper_data.data_type)], 
+    label: "Data type: "
+  })*/
+
+```
+
+
+```{ojs}
+//| echo: false
+//| include: false
+
+poss_paper_data = [...new Set(paper_data.data_type)]
+  
+console.log("poss_paper_data", poss_paper_data)
+
+
+```
+
+```{ojs}
+//| echo: false
+//| include: false
+
+category_list = [...new Set(paper_data.Paper_category)];
+
+console.log("category_list: ", category_list)
+
+datatype_list = [...new Set(paper_data.data_type)];
+
+console.log("datatype list: ", datatype_list)
+
+broader_topic_list = [...new Set(paper_data.broader_topic)];
+
+console.log("broader_topic: ", broader_topic_list)
+
+finer_topic_list = [...new Set(paper_data.finer_topic)];
+
+console.log("finer_topic: ", finer_topic_list)
+
+Paper_title_list = [...new Set(paper_data.Paper_title)];
+
+console.log("paper title: ", Paper_title_list)
+
+```
+
+##### Row {height="15%"}
+
+###### Column {width="100%"}
+
+<!-- <div class="cell panel-input card bg-light"> -->
+
+<!-- <detail> -->
+<!-- <summary>Show Categories</summary> -->
+
+```{ojs}
+//| echo: false
+/*viewof category = Inputs.checkbox(
+  [...new Set(paper_data.Paper_category)], 
+  {
+    value: [...new Set(paper_data.Paper_category)], 
+    label: "Category: "
+  })*/
+  
+console.log("paper_data", paper_data)  
+//console.log("Categories: ", category)  
+  
+```
+
+<!-- </detail> -->
+
+<!-- <detail> -->
+<!-- <summary>Show Data types</summary> -->
+
+```{ojs}
+//| echo: false
+
+//console.log("Categories filter: ", category)  
+
+console.log(paper_data.data_type)
+
+//console.log("Filter data: ", csvObject.filter(d => category.includes(d["Paper_category"])))
+
+/*console.log("Paper data data type filter: ", paper_data.data_type.filter(d => category.include(paper_data.Paper_category)))*/
+
+/*console.log("Filter selection data type ", paper_data[0].data_type.filter((_, index) => category.includes(paper_data[0].Paper_category[index])))*/
+
+/*console.log("filtered broader topic: ", paper_data[0].broader_topic.filter((_, index) => category.includes(paper_data[0].Paper_category[index])))*/
+
+/*filtered_data = {
+  data_type: paper_data[0].data_type.filter((_, index) => category.includes(paper_data[0].Paper_category[index])),
+  broader_topic: paper_data[0].broader_topic.filter((_, index) => category.includes(paper_data[0].Paper_category[index])),
+  finer_topic: paper_data[0].finer_topic.filter((_, index) => category.includes(paper_data[0].Paper_category[index])),
+  Paper_title: paper_data[0].Paper_title.filter((_, index) => category.includes(paper_data[0].Paper_category[index])),
+  category: paper_data[0].Paper_category.filter(cat => cateogry.includes(cat))
+  }*/
+
+
+//console.log("Filtered data : ", filtered_data) 
+
+/*viewof datatype = Inputs.checkbox(
+  [...new Set(filtered_data.data_type)],
+  {
+    value: [...new Set(filtered_data.data_type)],
+    label: "Data type: "
+  })*/
+```
+  
+  
+<!-- </detail> -->
+
+<!-- <detail> -->
+<!-- <summary>Show Broader Topic</summary> -->
+
+```{ojs}
+//| echo: false
+
+/*filtered_data_2 = paper_data.data_type.filter(p => datatype.includes(p.data_type) && category.includes(p.Paper_category))*/
+
+console.log("Filtered data 2: ")
+
+/*viewof broader_topic = Inputs.checkbox(
+  [...new Set(filtered_data_2.broader_topic)],
+  {
+    value: [...new Set(filtered_data_2.broader_topic)],
+    label: "Broader topic: "
+  })*/
+```
+  
+<!-- </detail> -->
+
+<!-- <detail> -->
+<!-- <summary>Show Finer Topic</summary> -->
+
+```{ojs}
+//| echo: false
+
+//filtered_data_3 = filtered_data_2.broader_topic.filter(p => broader_topic.includes(p.broader_topic))
+
+console.log("Filtered data 3: ")
+
+/*viewof finer_topic = Inputs.checkbox(
+  [...new Set(filtered_data_3.finer_topic)],
+  {
+    value: [...new Set(filtered_data_3.finer_topic)],
+    label: "Finer topic: "
+  })*/
+```  
+
+
+<!-- <detail> -->
+<!-- <summary>Show Finer Topic</summary> -->
+
+```{ojs}
+//| echo: false
+
+//filtered_data_4 = filtered_data_3.finer_topic.filter(p => finer_topic.includes(p.finer_topic))
+ 
+console.log("Filter data 4 ", )  
+
+/*viewof Paper_title = Inputs.select(
+  [...new Set(filtered_data_4.Paper_title)],
+  {
+    value: [...new Set(filtered_data_4.Paper_title)][1],
+    label: "Paper title: "
+  })*/
+  
+```
+  <!-- </detail> -->
+
+  <!-- </div> -->
+
+
+
+##### Row {height="85%"}
+
+###### Column {width="40%"}
+
+```{ojs}
+//| title: Publication
+//| echo: false
+//| include: false
+
+console.log("Link to paper section")
+
+//console.log("paper titles", paper_links.paper_title)
+
+//targetTitle = "A benchmark of batch-effect correction methods for single-cell RNA sequencing data"
+
+
+// Get index of 
+//link_idx = paper_links.indexOf(filtered_data_4.Paper_title)
+//selected_Link = paper_links[link_idx]
+
+//[filtered_data_4.Paper_title](selected_Link)
+//console.log("target title", targetTitle)
+//console.log("target link", targetLink)
+
+//target_link
+/*filtered_data = paper_links.filter(function(p) { 
+return selected_paper_category.includes(p.paper_category)  }) */
+
+
+```
+
+###### Column {width="60%"}
+
+```{ojs}
+//| title: Publication
+//| echo: false
+//| include: false
+
+//selected_data = paper_data.indexOf(filtered_data_4.Paper_title)
+
+console.log("selected_data")
+//selected_data.Recommendation
+/*selected_paper = paper_data.filter(p => selected_paper_title.includes(p.paper_title) 
+) */
+
+```

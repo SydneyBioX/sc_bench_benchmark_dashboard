@@ -1,24 +1,44 @@
-#### Column {width="50%"}
+
+<!-- Evaluation - Statistis -->
+
+
+#### Column {width="100%"}
 
 ```{r}
-#| title: Pure Benchmark
+#| title: Statistics of attributes
 #| echo: false
-#| label: "Evaluation - Journal - Pure benchmark"
+#| label: "Evaluation - statistics"
 
-journal_data <- data |> filter(Paper.category == "Pure benchmarking paper")
-journal_plot(journal_data)
+selected_columns <- c(
+  "Selection.criteria",
+  "Variability.of.score",
+  "Sensitivity.analysis",
+  "Overall.comparison",
+  "Downstream.analysis",
+  "Applicability",
+  "Recommendation",
+  "Memory.measured",
+  "Speed.measured.",
+  "Discovery.",
+  "Prior.knowledge",
+  "Data.availability",
+  "Website",
+  "Package.availability",
+  "Future.directions"
+)
 
-```
+selected_data <- data |> select(Paper.category, selected_columns)
 
+mod_data <- selected_data |> pivot_longer(cols = selected_columns, names_to = "Attributes", values_to = "Value")
 
-#### Column {width="50%"}
+data_value_counts <- mod_data |>
+  group_by(Paper.category, Attributes, Value) |>
+  tally() |>
+  pivot_wider(names_from = Value, values_from = n, values_fill = list(n = 0))
 
-```{r}
-#| title: New method development paper
-#| echo: false
-#| label: "Evaluation - Journal - New method development paper"
+data_long <- data_value_counts |>
+  pivot_longer(cols = c("Yes", "No", "Not sure"), names_to = "Answers", values_to = "Value")
 
-journal_data <- data %>% filter(Paper.category == "New method development paper")
-journal_plot(journal_data)
-    
+statistical_plots(data_long)
+
 ```

@@ -1,15 +1,263 @@
+<!-- Paper - Survey Analysis -->
+
+#### Column {width="100%"}
 
 ##### Row {height="15%"}
 
-Placeholder text for top row (Selection)
+###### Column {width="25%"}
+```{ojs}
 
-##### Row {height="85%"}
+//d3 = require("d3@7")
+//topojson = require("topojson")
+//jQuery = require("jQuery")
 
-::: {.card title="card Title"}
-This is a card
-:::
+d3 = require("d3@7")
+jQuery = require("jquery")
 
-```{r}
-#| title: card title
+category_list = [...new Set(paper_data.Paper_category)];
+
+viewof category = Inputs.checkbox(
+  category_list, 
+  {
+    value:  category_list, 
+    label: "Data category: "
+  })
 
 ```
+
+###### Column {width="25%"}
+```{ojs}
+//| expandable: false
+
+datatype_list = [...new Set(
+  paper_data.Paper_category
+    .map((value, index) => category.includes(value) ? paper_data.data_type[index] : null)
+    .filter(value => value !== null)
+)];
+
+//console.log("datatype_list", datatype_list)
+
+viewof data_type = Inputs.select(
+  datatype_list, 
+  {
+    value: "Single-cell RNA-seq",
+    label: "Data type: "
+  })
+
+```
+
+###### Column {width="25%"}
+```{ojs}
+
+broaderTopic_list = 
+  paper_data.Paper_category
+    .map((value, index) => category.includes(value) && data_type.includes(paper_data.data_type[index]) ? paper_data.broader_topic[index] : null)
+    .filter(value => value !== null);
+
+viewof broader_topic = Inputs.select(
+  broaderTopic_list, 
+  {
+    value: "Intermediate analysis",
+    label: "Broader topic: ",
+    unique: true
+  })
+
+```
+
+###### Column {width="25%"}
+```{ojs}
+//| expandable: false
+
+finerTopic_list = [...new Set(
+  paper_data.Paper_category
+    .map((value, index) => category.includes(value) && 
+    data_type.includes(paper_data.data_type[index]) && 
+    broader_topic.includes(paper_data.broader_topic[index]) ? paper_data.finer_topic[index] : null).filter(value => value !== null)
+)];
+
+viewof finer_topic = Inputs.select(
+ finerTopic_list, 
+  {
+    value: "Cell type/state identification",
+    label: "Finer topic: "
+  })
+
+```
+
+##### Row {height="12%"}
+
+###### Column {width="100%"}
+
+```{ojs}
+//| expandable: false
+
+paperTitle_list = [...new Set(
+  paper_data.Paper_category
+    .map((value, index) => category.includes(value) && 
+    data_type.includes(paper_data.data_type[index]) && 
+    broader_topic.includes(paper_data.broader_topic[index]) &&
+    finer_topic.includes(paper_data.finer_topic[index]) ? 
+    paper_data.Paper_title[index] : null).filter(value => value !== null)
+)];
+
+viewof paper_title = Inputs.select(
+ paperTitle_list, 
+  {
+    label: "Paper title: ",
+    width: "100%"
+  })
+
+
+```
+
+##### Row {height="73%"}
+
+###### Column {width="60%"}
+
+
+```{ojs}
+//| expandable: false
+
+selected_paper_link = paper_links.Paper_title
+    .map((value, index) => paper_title.includes(value) ? 
+    paper_links.Link[index] : null).filter(value => value !== null)[0];
+
+html`
+  <iframe src=${selected_paper_link} width="100%" height="400px" title="Research paper"></iframe>
+`;
+
+```
+
+
+###### Column {width="40%"}
+
+```{ojs}
+
+selected_columns = [
+  "Paper_category",
+  "data_type",
+  "broader_topic",
+  "finer_topic",
+  "publication_date",
+  "Max_number_of_cells",
+  "Data_availability",
+  "Recommendation",
+  "Applicability",
+  "Sensitivity_analysis",
+  "Variability_of_score"
+]
+
+filtered_paper_data = Object.keys(paper_data).reduce((obj, key) => {
+  const index = paper_data.Paper_title.indexOf(paper_title);
+  
+  if (index !== -1) {
+    obj[key] = paper_data[key][index];
+  }
+  
+  return obj;
+}, {});
+
+//console.log("Filtered_paper_data", filtered_paper_data)
+
+selected_data = selected_columns.reduce((obj, key) => {
+  if (filtered_paper_data[key] !== undefined) {
+    obj[key] = filtered_paper_data[key];
+  }
+  return obj;
+}, {});
+
+//console.log("Selected data", selected_data)
+
+/*html`
+  <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+    ${Object.entries(selected_data).map(([key, value]) => {
+      return html`
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-white" style="background-color: #00aa49;"> ${key}</h5>
+            <p class="card-text">${value}</p>
+        </div>
+      `;
+    })}
+  </div>
+`*/
+
+
+// Create HTML for cards
+html`
+  <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+    ${Object.entries(selected_data).map(([key, value]) => {
+      return html`
+        <div style="border: 1px solid #ccc; border-radius: 8px; padding: 5px; width: 220px; box-shadow: 2px 2px 5px rgba(0,0,0,0.1);">
+          <h4 style="margin: 0 0 0 0; font-size: 18px; color: #fff; background-color: #2C5488; padding: 5px; border-radius: 4px;">
+            ${key.charAt(0).toUpperCase() + key.slice(1).replaceAll("_", " ")}
+          </h4>
+          <p style="margin: 5; font-size: 14px; color: #555;">
+            ${value}
+          </p>
+        </div>
+      `;
+    })}
+  </div>
+`
+
+/*first_indices = paper_data.Paper_category.map((c, index) => c === "New method development paper" ? index : -1).filter(index => index !== -1);
+
+selected_paper_category = "New method development paper"
+
+console.log("First indices", first_indices)
+
+first_filtered_data = paper_data.filter(p => category.includes(p.paper_category))
+
+console.log("First indices length", first_filtered_data.length) 
+console.log("First indices", first_filtered_data)
+
+
+secondFilter = first_indices.map(index => paper_data.data_type[index])
+
+console.log("Second filter", secondFilter)
+
+selected_data_type = ["Single-cell Hi-C", "Single-cell mass cytometry"]
+
+second_filtered_data = first_filtered_data.filter(p => selected_data_type.includes(p.data_type))
+
+console.log("Second indices length", second_filtered_data.length)
+console.log("Second indices", second_filtered_data)
+
+filtered_data = paper_data.filter(p => category.includes(p.Paper_category))
+
+console.log(filtered_data)
+
+viewof data_type = Inputs.checkbox(
+  [...new Set(paper_data.data_type)], 
+  {
+    value:  [...new Set(paper_data.data_type)], 
+    label: "Data type: "
+  })*/
+
+
+
+/*category_list = [...new Set(paper_data.Paper_category)];
+
+console.log("category_list: ", category_list)
+
+datatype_list = [...new Set(paper_data.data_type)];
+
+console.log("datatype list: ", datatype_list)
+
+broader_topic_list = [...new Set(paper_data.broader_topic)];
+
+console.log("broader_topic: ", broader_topic_list)
+
+finer_topic_list = [...new Set(paper_data.finer_topic)];
+
+console.log("finer_topic: ", finer_topic_list)
+
+Paper_title_list = [...new Set(paper_data.Paper_title)];
+
+console.log("paper title: ", Paper_title_list)*/
+
+
+```
+
+

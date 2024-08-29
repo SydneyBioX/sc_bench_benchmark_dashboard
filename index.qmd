@@ -1,5 +1,5 @@
 ---
-title: "sc bench benchmark"
+title: "sc bench benchmark dashboard"
 author: ""
 format: 
   dashboard: 
@@ -13,32 +13,13 @@ format:
 
 {{< include ./_includes/load_data/index.qmd >}}
 
-```{ojs}
-//| echo: false
-//| output: false
-
-d3 = require("d3@7")
-topojson = require("topojson")
-
-```
-
-```{ojs}
-//| echo: false
-//| output: false
-
-data_o = FileAttachment("data/data2.csv").csv({ typed: true })
-
-```
+{{< include ./function.qmd >}}
 
 # Paper
-
-## Column {width="100%"}
 
 {{< include ./_includes/papers/index.qmd >}}
 
 # Data overview
-
-## Column {width="100%"}
 
 {{< include ./_includes/overview/index.qmd >}}
 

@@ -1,0 +1,327 @@
+
+```{r}
+#| echo: false
+
+formatData <- function(data, paper_type) {
+  benchmark_paper_df <- data |> 
+    filter(Paper.category == paper_type) |>
+    select(data_type, broader_topic, finer_topic) |>
+#    mutate(across(where(is.character), trimws)) |>
+    group_by(across(everything())) |>
+    mutate(Size = n()) |>
+    distinct()
+  
+  return(benchmark_paper_df)
+}
+
+calculate_sums <- function(df, parent_ids) {
+  df %>%
+    filter(parents %in% parent_ids) %>%
+    group_by(parents) %>%
+    summarise(total_value = sum(values, na.rm = TRUE), .groups = 'drop')
+}
+
+# Function to update values in the original data frame
+update_df <- function(df, parent_sums) {
+  new_df <- df %>%
+    left_join(parent_sums, by = c("ids" = "parents")) %>%
+    mutate(values = coalesce(total_value, values)) %>%
+    select(-total_value)
+  return(new_df)
+}
+
+generateSunburstData <- function(data, paper_type) {
+  
+  benchmark_paper_df <- formatData(data, paper_type)
+  
+  overview_df_all <- data.frame(
+    ids = c(
+      "Benchmark",
+      paste0("Benchmark - ", benchmark_paper_df$data_type),
+      paste0("Benchmark - ", benchmark_paper_df$data_type, " - ", benchmark_paper_df$broader_topic),
+      paste0("Benchmark - ", benchmark_paper_df$data_type, " - ", benchmark_paper_df$broader_topic, " - ", benchmark_paper_df$finer_topic)
+    ),
+    labels = c(
+      paper_type,
+      benchmark_paper_df$data_type,
+      benchmark_paper_df$broader_topic,
+      benchmark_paper_df$finer_topic
+    ),
+    parents = c(
+      "",
+      rep("Benchmark", nrow(benchmark_paper_df)),
+      paste0("Benchmark - ", benchmark_paper_df$data_type),
+      paste0("Benchmark - ", benchmark_paper_df$data_type, " - ", benchmark_paper_df$broader_topic)
+    ),
+    values = c(
+      0,
+      rep(0, 2 * nrow(benchmark_paper_df)),
+      benchmark_paper_df$Size
+    )
+  )
+  
+  unique_overall_df <- overview_df_all %>% 
+    filter(!is.na(ids)) %>%  
+    distinct(ids, .keep_all = TRUE)
+  
+  updated_df <- unique_overall_df 
+  
+  non_benchmark_ids <- updated_df %>%
+    filter(parents != "Benchmark" & ids != "Benchmark") %>%
+    pull(ids)
+
+  non_benchmark_sum <- calculate_sums(updated_df, non_benchmark_ids)
+
+  updated_df <- update_df(updated_df, non_benchmark_sum)
+
+  benchmark_ids <- updated_df %>%
+    filter(parents == "Benchmark") %>%
+    pull(ids)
+
+  benchmark_sum <- calculate_sums(updated_df, benchmark_ids)
+
+  updated_df <- update_df(updated_df, benchmark_sum)
+  
+  root_ids <- updated_df %>%
+    filter(parents == "") %>%
+    pull(ids)
+
+  root_sum <- calculate_sums(updated_df, root_ids)
+
+  updated_df <- update_df(updated_df, root_sum)
+
+  return(updated_df)
+}
+
+formatSankeyDiagData <- function(data, paper_type) {
+  benchmark_paper_df <- data |>
+    filter(Paper.category == paper_type) |>
+    select(data_type, broader_topic, finer_topic) |>
+    mutate(across(where(is.character), trimws)) |>
+    group_by(across(everything())) |>
+    mutate(Size = n()) |>
+    distinct()
+
+  return(benchmark_paper_df)
+}
+
+generateSankeyDiagData <- function(data, paper_type) {
+  
+  benchmark_diag <- formatSankeyDiagData(data, paper_type)
+  
+  sankey_source_order <- data |>
+    filter(Paper.category == paper_type) |>
+    pull(data_type) |>
+    unique() |>
+    sort()
+    
+  sankey_target_order <- c(
+    "Data",
+    "Initial analysis",
+    "Intermediate analysis",
+    "Downstream analysis",
+    "Analysis pipelines"
+  )
+  
+  groupFunc <- function(x) {
+    i <- which(c(sankey_source_order, sankey_target_order) %in% x[1])
+    return(LETTERS[i])
+  }
+
+  benchmark_diag$group <- apply(benchmark_diag, 1, groupFunc)
+  
+  links <- data.frame(
+    source = c(benchmark_diag$data_type, benchmark_diag$broader_topic),
+    target = c(benchmark_diag$broader_topic, benchmark_diag$finer_topic),
+    value = benchmark_diag$Size,
+    group = benchmark_diag$group
+  )
+  
+  links <- links[!(links$target == ""), ] 
+  
+  links$target <- ifelse(links$source == "Analysis pipelines", 
+                       paste0(links$target, " "), 
+                       links$target)
+   
+  links <-  links |>
+    mutate(
+      source = factor(links$source, levels = c(
+        c(sankey_source_order, sankey_target_order), sort(setdiff(
+          links$source, c(sankey_source_order, sankey_target_order)
+        ))
+      )),
+      target = factor(links$target, levels = c(sankey_target_order, sort(
+        setdiff(links$target, sankey_target_order)
+      )))
+    ) |>
+    arrange(source, target) 
+
+  nodes <- data.frame(name = unique(c(as.character(links$source), as.character(links$target))), group = "z")
+  
+  # Add groups for colour
+  idx <- which(nodes$name %in% sankey_source_order)
+ 
+  source_num_labels <- length(idx)
+  source_labels <- LETTERS[1:source_num_labels]
+
+  nodes$group[idx] <- source_labels
+  
+  idx <- which(nodes$name %in% sankey_target_order)
+
+  target_num_labels <- length(idx)
+  target_labels <- LETTERS[(1+source_num_labels):(target_num_labels+source_num_labels)]
+
+  nodes$group[idx] <- target_labels
+
+  nodes$group <- as.factor(nodes$group)
+  
+  links$IDsource <- match(links$source, nodes$name) - 1
+  links$IDtarget <- match(links$target, nodes$name) - 1
+  
+  unique_node_groups <- unique(nodes$group)
+  
+  # num_colors <- length(unique_node_groups)
+  # color_palette <- brewer.pal(n = num_colors, name = "Set3")
+  # 
+  # color_scale <- paste0(
+  # "d3.scaleOrdinal()",
+  # ".domain([", paste0('"', unique_node_groups, '"', collapse = ", "), "])",
+  # ".range([", paste0('"', color_palette, '"', collapse = ", "), "])"
+  # )
+  # 
+  node_color = c("brown", "forestgreen" , "red", "orange", "darkviolet", "steelblue",
+  "azure", "bisque", "darksalmon", "darkseagreen", "cornsilk", "darkgray", "#99cccc")
+  
+  benchmarkColor <- 'd3.scaleOrdinal()
+      .domain(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "z"])
+      .range(["brown", "forestgreen" , "red", "orange", "darkviolet", "steelblue",
+  "azure", "bisque", "darksalmon", "darkseagreen", "cornsilk", "darkgray", "#99cccc"])'
+
+  # sn <- sankeyNetwork(
+  #   Links = links,
+  #   Nodes = nodes,
+  #   Source = "IDsource",
+  #   Target = "IDtarget",
+  #   Value = "value",
+  #   NodeID = "name",
+  #   fontSize = 12,
+  #   colourScale=benchmarkColor,
+  #   NodeGroup="group",
+  #   sinksRight = FALSE,
+  #   iterations = 1
+  # )
+  # 
+  # return(sn)
+  
+  fig <- plot_ly(
+    type = "sankey",
+    orientation = "h",
+    
+    node = list(
+      label = nodes$name,
+      color = node_color,
+      pad = 10,
+      thickness = 10,
+      line = list(
+        color = "black",
+        width= 0.5
+      )
+    ),
+    
+    link = list(
+      source = links$IDsource,
+      target = links$IDtarget,
+      value = links$value
+    )
+  )
+  
+  fig <- fig %>% layout(
+    title = paper_type,
+    font = list(
+      size = 10
+    )
+  )
+
+  return(fig)
+}
+
+```
+
+
+```{r}
+
+#| echo: false
+
+
+publication_plot <- function(data) {
+  
+  selected_bench_pubyears <- data %>% 
+    select(year, broader_topic) %>%
+    group_by(across(everything())) %>%
+    mutate(size = n()) %>%
+    distinct() 
+  
+  
+  g <- ggplot(selected_bench_pubyears, aes(x = factor(year), y = size, fill = broader_topic)) +
+    geom_bar(position = "dodge", stat = "identity") +
+    theme_minimal() +
+    ylab("Numbers") +
+    xlab("Publication Year")
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        text = element_text(size=20), axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) 
+  
+  g <- ggplotly(g)
+  
+  return(g)
+}
+
+journal_plot <- function(data) {
+  
+  selected_journal <- as.data.frame(table(data$journal_name))
+  packing <- circleProgressiveLayout(selected_journal$Freq, sizetype='area')
+  selected_journal <- cbind(selected_journal, packing)
+  dat.gg <- circleLayoutVertices(packing, npoints=50)
+  
+  g <- ggplot() +
+    geom_polygon(data = dat.gg, aes(x, y, group = id, fill=as.factor(id)), colour = "#808080", alpha = 0.6) +
+    geom_text(data = selected_journal, aes(x, y, size=Freq, label=Var1)) +
+    scale_size_continuous(range = c(2,5)) +
+    theme_void() + 
+    theme(legend.position="none") +
+    coord_equal()
+  
+   g <- ggplotly(g)
+  
+  return(g)
+}
+
+
+statistical_plots <- function(data) {
+  
+  g <- ggplot(data_long, aes(x = Paper.category, y = Value, fill = Answers)) +
+  geom_bar(stat = "identity", position = "stack") +
+  #facet_grid(~ Attributes, scales = "free_x", switch="x") + 
+  facet_wrap(~ Attributes, scales = "free_x") +
+  coord_flip() +
+  theme_minimal() +
+  theme(
+    panel.grid.major = element_blank(), 
+    panel.grid.minor = element_blank(), 
+    axis.text.x = element_text(angle = 20, vjust = 1, hjust = 1), 
+    #strip.text = element_text(angle = 10, hjust = 1),
+    panel.border = element_rect(color = "black", fill = NA, size = 1), # Add border around each facet
+    strip.background = element_rect(fill = "lightgray", color = "black", size = 1),  # Background color and border
+    strip.text = element_text(color = "black", face = "bold"),
+    panel.spacing = unit(0.1, "lines")# Text color and style
+  ) +
+    scale_fill_brewer(palette = "Accent") +
+  labs(title = "Stacked Bar Chart by Attributes", y = "Size") #+
+    # theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.text.x = element_text(angle = 20, vjust = 1, hjust = 1), strip.text = element_text(angle = 0, hjust = 1))
+  #theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.text.x = element_text(angle = 20, vjust = 1, hjust = 1), strip.text = element_text(angle = 10, hjust = 1))
+
+  g <- ggplotly(g)
+
+  return(g)
+}
+
+```

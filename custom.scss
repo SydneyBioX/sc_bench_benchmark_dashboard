@@ -14,3 +14,18 @@ $headings-font-weight:  500 !default;
 h1, h2, h3, h4, h5, h6 {
   text-shadow: -1px -1px 0 rgba(0, 0, 0, .3);
 }
+
+form.oi-3a86ea * {
+  box-sizing: border-box; /* Ensure padding and borders are included in width */
+  width: 100% !important;
+}
+
+
+@media only screen and (min-width: 30em) {
+  form.oi-3a86ea {
+      width: 100% !important;
+      max-width: 100%; /* Ensure it does not exceed 100% */
+      margin: initial;
+      /* Other styles */
+  }
+}

@@ -1,4 +1,4 @@
-<!-- ### <center>[**The current landscape and emerging challenges of benchmarking single-cell  methods**](https://www.biorxiv.org/content/10.1101/2023.12.19.572303v1)<center> -->
+<!-- Information -->
 
 <div style="text-align: center;">
   <h3>

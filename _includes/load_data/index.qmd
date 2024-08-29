@@ -1,3 +1,5 @@
+<!-- Load data -->
+
 ```{r}
 #| label: load-packages
 #| echo: false
@@ -22,6 +24,10 @@ library(ggwordcloud)
 library(lazyeval)
 library(ggstream)
 library(RColorBrewer)
+library(dplyr)
+library(tibble)
+library(ggplot2)
+library(tidyr)
 ```
 
 ```{r}
@@ -30,16 +36,18 @@ library(RColorBrewer)
 
 data <- read.csv("data/data.csv")
 
-paper_links <- read.csv("data/sc_bench_benchmark_links.csv")
+new_cname <- gsub("\\.", "_", colnames(data))
+data2 <- data
+colnames(data2) <- new_cname
 
-sankey_target_order <- c(
-  "Data",
-  "Initial analysis",
-  "Intermediate analysis",
-  "Downstream analysis",
-  "Analysis pipelines"
-)
+data_links <- read.csv("data/sc_bench_benchmark_links.csv")
+colnames(data_links)[1] <- "Paper_title"
 
+ojs_define(paper_data=data2)
+ 
+ojs_define(paper_links=data_links)
 
 
 ```
+
+

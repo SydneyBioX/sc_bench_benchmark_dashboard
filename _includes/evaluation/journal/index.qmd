@@ -1,3 +1,5 @@
+<!-- Evaluation - Journal -->
+
 #### Column {width="50%"}
 
 ```{r}
@@ -18,7 +20,7 @@ journal_plot(journal_data)
 #| echo: false
 #| label: "Evaluation - Journal - New method development paper"
 
-journal_data <- data %>% filter(Paper.category == "New method development paper")
+journal_data <- data |> filter(Paper.category == "New method development paper")
 journal_plot(journal_data)
     
 ```

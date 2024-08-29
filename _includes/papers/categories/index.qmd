@@ -1,5 +1,6 @@
-##### Row {height="20%"}
+#### Column {width="100%"}
 
+##### Row {height="20%"}
 
 ```{r}
 #| content: valuebox
@@ -44,7 +45,7 @@ list(
 
 ##### Row {height="40%"}
 
-
+###### Column {width="100%"}
 ```{r}
 #| title: "Pure benchmark papers"
 #| layout-ncol: 2
@@ -59,29 +60,18 @@ plot_ly(
   parents = ~ parents,
   type = 'sunburst',
   values = ~ values,
+  branchvalues = 'total',
   insidetextorientation = 'radial'
 )
-
-# sankey_target_order <- c(
-#   "Data",
-#   "Initial analysis",
-#   "Intermediate analysis",
-#   "Downstream analysis",
-#   "Analysis pipelines"
-# )
-
-# filtered_data <- subset(data, Paper.category == "Pure benchmarking paper")
-# sankey_source_order <- sort(unique(filtered_data$data_type))
-# print(sankey_source_order)
 
 generateSankeyDiagData(data, "Pure benchmarking paper")
 
 
 ```
 
-
-
 ##### Row {height="40%"}
+
+###### Column {width="50%"}
 
 ```{r}
 #| title: "New method development papers"
@@ -97,13 +87,11 @@ plot_ly(
   parents = ~ parents,
   type = 'sunburst',
   values = ~ values,
+  branchvalues = 'total',
   insidetextorientation = 'radial'
 )
 
 
 generateSankeyDiagData(data, "New method development paper")
 
-
 ```
-
-

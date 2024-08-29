@@ -14,8 +14,4 @@
 
 ### Statistics
 
-
-```{r}
-#| title: List of statistics
-```
-Statistics
+{{< include ./_includes/evaluation/statistics/index.qmd >}}

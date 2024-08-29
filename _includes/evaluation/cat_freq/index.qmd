@@ -1,4 +1,6 @@
 #### Column {width="50%"}
+<!-- Evaluation - category freq -->
+
 
 ```{r}
 #| title: Pure Benchmark
@@ -7,15 +9,9 @@
 
 freq_data <- data %>%
   filter(Paper.category == "Pure benchmarking paper") %>%
-  select(finer_topic)
+  count(finer_topic, name = "freq") %>%
+  rename(word = finer_topic)
 
-colnames(freq_data) <- "word"
-
-freq_data <- as.data.frame(table(freq_data))
-colnames(freq_data) <- c("word", "freq")
-rownames(freq_data) <- freq_data$word
-
-#wordcloud2(freq_data)
 ggwordcloud2(freq_data[, c("word", "freq")], size = 1.5)
 
 ```
@@ -29,14 +25,9 @@ ggwordcloud2(freq_data[, c("word", "freq")], size = 1.5)
 #| label: "Evaluation - category freq - New method development paper"
 
 freq_data <- data %>%
-  filter(Paper.category == "New method development paper") %>%
-  select(finer_topic)
-
-colnames(freq_data) <- "word"
-
-freq_data <- as.data.frame(table(freq_data))
-colnames(freq_data) <- c("word", "freq")
-rownames(freq_data) <- data$word
+  filter(Paper.category == "Pure benchmarking paper") %>%
+  count(finer_topic, name = "freq") %>%
+  rename(word = finer_topic)
 
 ggwordcloud2(freq_data[, c("word", "freq")], size = 1.5)
     
