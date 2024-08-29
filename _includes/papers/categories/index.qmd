@@ -43,9 +43,9 @@ list(
 ```
 
 
-##### Row {height="40%"}
+##### Row {height="80%"}
 
-###### Column {width="100%"}
+###### Column {width="50%"}
 ```{r}
 #| title: "Pure benchmark papers"
 #| layout-ncol: 2
@@ -68,8 +68,6 @@ generateSankeyDiagData(data, "Pure benchmarking paper")
 
 
 ```
-
-##### Row {height="40%"}
 
 ###### Column {width="50%"}
 

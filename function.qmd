@@ -235,12 +235,12 @@ generateSankeyDiagData <- function(data, paper_type) {
     )
   )
   
-  fig <- fig %>% layout(
-    title = paper_type,
-    font = list(
-      size = 10
-    )
-  )
+  # fig <- fig %>% layout(
+  #   title = paper_type,
+  #   font = list(
+  #     size = 10
+  #   )
+  # )
 
   return(fig)
 }
