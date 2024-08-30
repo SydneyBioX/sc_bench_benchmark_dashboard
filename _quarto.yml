@@ -3,7 +3,9 @@ project:
   output-dir: docs
   preview:
     port: 4000
-
+execute:
+  freeze: auto
+  
 website:
   title: "sc_bench_benchmark_dashboard"
   description: "The current landscape and emerging challenges of benchmarking single-cell methods"
