@@ -64,7 +64,7 @@ generateSunburstData <- function(data, paper_type) {
     filter(!is.na(ids)) %>%  
     distinct(ids, .keep_all = TRUE)
   
-  updated_df <- unique_overall_df 
+  updated_df <- unique_overall_df
   
   non_benchmark_ids <- updated_df %>%
     filter(parents != "Benchmark" & ids != "Benchmark") %>%
@@ -299,7 +299,7 @@ journal_plot <- function(data) {
 statistical_plots <- function(data) {
   
   g <- ggplot(data_long, aes(x = Paper.category, y = Value, fill = Answers)) +
-  geom_bar(stat = "identity", position = "stack") +
+  geom_bar(stat = "identity", position = "fill") +
   #facet_grid(~ Attributes, scales = "free_x", switch="x") + 
   facet_wrap(~ Attributes, scales = "free_x") +
   coord_flip() +
@@ -314,7 +314,7 @@ statistical_plots <- function(data) {
     strip.text = element_text(color = "black", face = "bold"),
     panel.spacing = unit(0.1, "lines")# Text color and style
   ) +
-    scale_fill_brewer(palette = "Accent") +
+  scale_fill_manual(values = c("#FAA0A0", "gray", "#A7C7E7")) +
   labs(title = "Stacked Bar Chart by Attributes", y = "Size") #+
     # theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.text.x = element_text(angle = 20, vjust = 1, hjust = 1), strip.text = element_text(angle = 0, hjust = 1))
   #theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.text.x = element_text(angle = 20, vjust = 1, hjust = 1), strip.text = element_text(angle = 10, hjust = 1))
