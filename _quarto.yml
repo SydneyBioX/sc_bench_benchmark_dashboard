@@ -3,13 +3,11 @@ project:
   output-dir: docs
   preview:
     port: 4000
-execute:
-  freeze: auto
-  
+
 website:
   title: "sc_bench_benchmark_dashboard"
   description: "The current landscape and emerging challenges of benchmarking single-cell methods"
-  favicon: logo.png
+  favicon: "images/favicon-16x16.png"
   site-url: https://sydneybiox.github.io/sc_bench_benchmark_dashboard/
   repo-url: https://github.com/SydneyBioX/sc_bench_benchmark_dashboard
   sidebar:
@@ -21,7 +19,7 @@ website:
 
 format:
   html:
-    theme: [cosmo]
+    theme: [cosmo, yeti]
     toc: true
 
 

@@ -1,8 +1,15 @@
 <!-- Data Overview -->
 
+
 ```{r}
-#| title: Result table
-#| label: Result_table
+#| label: read raw data
+#| echo: false
+
+raw_data <- read.csv("data/data.csv")
+```
+
+```{r}
+#| label: filter data
 #| echo: false
 
 filtered_columns <- c(
@@ -33,7 +40,7 @@ filtered_columns <- c(
   "finer_topic"
 )
 
-filtered_data <- data %>% select(filtered_columns)
+filtered_data <- raw_data %>% select(filtered_columns)
 
 filtered_data$luke_topic <- factor(data$luke_topic)
 filtered_data$Paper.category <- factor(data$Paper.category)
@@ -42,12 +49,20 @@ filtered_data$journal_name <- factor(data$journal_name)
 filtered_data$data_type <- factor(data$data_type)
 filtered_data$broader_topic <- factor(data$broader_topic)
 filtered_data$finer_topic <- factor(data$finer_topic)
+```
+
+
+```{r}
+#| title: Result table
+#| label: Result_table
+#| echo: false
 
 DT::datatable(
   filtered_data,
   options = list(
     pageLength = 10,
     scrollX = TRUE,
+    scrollCollapse = TRUE,
     searching = TRUE,
     autoWidth = TRUE,
     dom = '<"top"flip>rt',
@@ -62,3 +77,4 @@ DT::datatable(
 )
 
 ```
+

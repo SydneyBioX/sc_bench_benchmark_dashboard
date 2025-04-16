@@ -6,12 +6,13 @@ resources:
   
 format: 
   dashboard: 
-    logo: "https://www.sydney.edu.au/etc.clientlibs/corporate-commons/clientlibs/foundation/resources/corporate-frontend/assets/img/favicon/favicon-16x16.png"
+    logo: "images/logo.png"
     theme: 
       - slate
-    nav-buttons: [github, twitter]
+    nav-buttons: [github]
 
 ---
+
 
 {{< include ./_includes/load_data/index.qmd >}}
 

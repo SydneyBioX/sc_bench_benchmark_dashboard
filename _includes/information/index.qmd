@@ -1,12 +1,10 @@
 <!-- Information -->
 
-<div style="text-align: center;">
-  <h3>
-    <a href="https://www.biorxiv.org/content/10.1101/2023.12.19.572303v1" target="_blank">
-      **The current landscape and emerging challenges of benchmarking single-cell methods**
-    </a>
-  </h3>
-</div>
+::: {style="text-align: center; padding-bottom: 30px"}
+<h3><a href="https://www.biorxiv.org/content/10.1101/2023.12.19.572303v1" target="_blank"> **The current landscape and emerging challenges of benchmarking single-cell methods** </a></h3>
+:::
+
+<br><br>
 
 **Introduction**
 

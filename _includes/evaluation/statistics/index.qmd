@@ -23,7 +23,8 @@ selected_columns <- c(
   "Prior.knowledge",
   "Data.availability",
   "Website",
-  "Package.availability",
+ # "Package.availability",
+ "Code.availability",
   "Future.directions"
 )
 

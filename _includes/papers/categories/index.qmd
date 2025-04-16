@@ -28,7 +28,8 @@ list(
 list(
   icon = "eyeglasses",
   color = "success",
-  value = length(unique(data$deidentified_name))
+  #value = length(unique(data$deidentified_name))
+  value = 33
 )
 ```
 

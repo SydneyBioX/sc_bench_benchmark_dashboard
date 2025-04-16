@@ -173,7 +173,14 @@ generateSankeyDiagData <- function(data, paper_type) {
 
   nodes$group[idx] <- target_labels
 
-  nodes$group <- as.factor(nodes$group)
+  #nodes$group <- as.factor(nodes$group)
+
+  node_color = c("brown", "forestgreen" , "red", "orange", "darkviolet", "steelblue", "#C2B280", "bisque", "darksalmon", "darkseagreen", "cornsilk", "#F0E68C", "#b1d8ff","#d07b95" , "#99cccc")
+  nodes_group_color <- data.frame(group = c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "z"), color = node_color)
+  
+  nodes <- nodes %>%
+    left_join(nodes_group_color, by = "group") 
+    
   
   links$IDsource <- match(links$source, nodes$name) - 1
   links$IDtarget <- match(links$target, nodes$name) - 1
@@ -189,13 +196,12 @@ generateSankeyDiagData <- function(data, paper_type) {
   # ".range([", paste0('"', color_palette, '"', collapse = ", "), "])"
   # )
   # 
-  node_color = c("brown", "forestgreen" , "red", "orange", "darkviolet", "steelblue",
-  "azure", "bisque", "darksalmon", "darkseagreen", "cornsilk", "darkgray", "#99cccc")
   
-  benchmarkColor <- 'd3.scaleOrdinal()
-      .domain(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "z"])
-      .range(["brown", "forestgreen" , "red", "orange", "darkviolet", "steelblue",
-  "azure", "bisque", "darksalmon", "darkseagreen", "cornsilk", "darkgray", "#99cccc"])'
+  
+  # benchmarkColor <- 'd3.scaleOrdinal()
+  #     .domain(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "z"])
+  #     .range(["brown", "forestgreen" , "red", "orange", "darkviolet", "steelblue",
+  # "azure", "bisque", "darksalmon", "darkseagreen", "cornsilk", "darkgray", "#99cccc"])'
 
   # sn <- sankeyNetwork(
   #   Links = links,
@@ -219,7 +225,7 @@ generateSankeyDiagData <- function(data, paper_type) {
     
     node = list(
       label = nodes$name,
-      color = node_color,
+      color = nodes$color,
       pad = 10,
       thickness = 10,
       line = list(

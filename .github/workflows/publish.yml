@@ -17,6 +17,12 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Print runner temp directory
+        run: echo ${{ runner.temp }}
+
+      - name: Clear cache
+        run: rm -rf ${{ runner.temp }}/actions
+
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 

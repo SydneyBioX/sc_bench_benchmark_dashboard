@@ -40,7 +40,9 @@ new_cname <- gsub("\\.", "_", colnames(data))
 data2 <- data
 colnames(data2) <- new_cname
 
-data_links <- read.csv("data/sc_bench_benchmark_links.csv")
+#data_links <- read.csv("data/sc_bench_benchmark_links.csv")
+data_links <- read.csv("data/sc_bench_benchmark_papers_with_urls.csv")
+
 colnames(data_links)[1] <- "Paper_title"
 
 ojs_define(paper_data=data2)
