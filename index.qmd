@@ -5,8 +5,6 @@ date: Aug 2024
 format: 
   dashboard: 
     logo: "images/logo.png"
-    theme: 
-      - cosmo
     nav-buttons: [github]
 
 ---
