@@ -1,6 +1,5 @@
 <!-- Data Overview -->
 
-
 ```{r}
 #| label: read raw data
 #| echo: false
@@ -51,7 +50,6 @@ filtered_data$broader_topic <- factor(data$broader_topic)
 filtered_data$finer_topic <- factor(data$finer_topic)
 ```
 
-
 ```{r}
 #| title: Result table
 #| label: Result_table
@@ -78,3 +76,4 @@ DT::datatable(
 
 ```
 
+**Please refresh the page if the table is not shown.**
