@@ -3,6 +3,8 @@ project:
   output-dir: docs
   preview:
     port: 4000
+  resources:
+    - .nojekyll
 
 website:
   title: "sc_bench_benchmark_dashboard"
